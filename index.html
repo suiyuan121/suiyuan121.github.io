@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Kategorien
+            Categories
           </a>
         </li>
       
@@ -220,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            Über
+            About
           </a>
         </li>
       
@@ -230,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lnplayer.github.io/2017/04/21/hexo搭建个人博客/">
+    <link itemprop="mainEntityOfPage" href="http://lnplayer.github.io/2017/04/21/Hexo搭建个人博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Ning">
@@ -305,7 +305,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/21/hexo搭建个人博客/" itemprop="url">
+                <a class="post-title-link" href="/2017/04/21/Hexo搭建个人博客/" itemprop="url">
                   hexo搭建个人博客
                 </a>
               
@@ -320,7 +320,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-21T10:43:23+08:00">
                 2017-04-21
@@ -382,7 +382,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>出现下图所示，即为成功<br><img src="../img/hexo1.png" alt="Smaller icon" title="Title here"><br>可以看到已经成功运行在了本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:4000/</div></pre></td></tr></table></figure></p>
+<p>出现下图所示，即为成功<br><img src="/img/hexo1.png" alt=""><br>可以看到已经成功运行在了本地<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:4000/</div></pre></td></tr></table></figure></p>
 <p>打开网站即可预览到我们的页面</p>
 <h3 id="Hexo-配置"><a href="#Hexo-配置" class="headerlink" title="Hexo 配置"></a>Hexo 配置</h3><h4 id="config-yml-文件配置"><a href="#config-yml-文件配置" class="headerlink" title="_config.yml 文件配置"></a>_config.yml 文件配置</h4><p>关于这个配置文件里的内容，官网有详细介绍，本人在这里只介绍比较重要的几个：</p>
 <ol>
@@ -422,7 +422,12 @@ root: /
 <pre><code>sudo ssh-keygen -t rsa -C “你的git用户名@github.com”
 </code></pre></li>
 </ol>
-<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><h4 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h4><p>由于git上上传的是通过hexo生成的静态文件，并不是原生的.md文件，这意味着一旦你的本地工程文件丢失，很有可能无法找回你的文章。所以本人建议将/hexo/source目录下的文件进行备份，无论是自己本地备份还是上传的git备份都是可行的办法。</p>
+<h4 id="hexo-generate问题"><a href="#hexo-generate问题" class="headerlink" title="hexo generate问题"></a>hexo generate问题</h4><p>在hexo generate中出现了        </p>
+<p><code>TypeError: Cannot read property &#39;offset&#39; of null</code></p>
+<p>原因是因为hexo 目录下的_confing.yml 和 主题模版文件中的_confing.yml 有关时区配置不一致或者主题模版文件中没有配置时区</p>
+<p>解决办法如下：</p>
+<pre><code>timezone: Asia/Shanghai            
+</code></pre><h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><h4 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h4><p>由于git上上传的是通过hexo生成的静态文件，并不是原生的.md文件，这意味着一旦你的本地工程文件丢失，很有可能无法找回你的文章。所以本人建议将/hexo/source目录下的文件进行备份，无论是自己本地备份还是上传的git备份都是可行的办法。</p>
 
           
         
@@ -503,7 +508,7 @@ root: /
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-20T19:53:00+08:00">
                 2017-04-20
@@ -631,22 +636,13 @@ root: /
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
 
           
 
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
-              
-            </div>
           
 
         </nav>
@@ -694,7 +690,7 @@ root: /
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
