@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="maven," />
 
 
 
@@ -90,21 +90,17 @@
 
 
 
-<meta name="description" content="Windows下pip安装以及virtualenv环境搭建 确保已安装python环境 进入python的官网下载工具，网址如下：https://pypi.python.org/pypi/setuptools">
-<meta name="keywords" content="Python">
+<meta name="description" content="maven仓库加载问题前言maven是当前非常流行的项目管理工具，各大公司几乎都在使用，然而本人在使用maven的过程中总是或多或少遇到一些问题，特此整理并记录下来，方便以后再次遇到这些问题时能够及时解决。">
+<meta name="keywords" content="maven">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows下pip安装以及virtualenv环境搭建">
-<meta property="og:url" content="http://lnplayer.github.io/2015/01/16/Windows下pip安装以及virtualenv环境搭建/index.html">
+<meta property="og:title" content="maven仓库加载问题">
+<meta property="og:url" content="http://lnplayer.github.io/2016/04/23/maven仓库加载问题/index.html">
 <meta property="og:site_name" content="lnplayer's Blog">
-<meta property="og:description" content="Windows下pip安装以及virtualenv环境搭建 确保已安装python环境 进入python的官网下载工具，网址如下：https://pypi.python.org/pypi/setuptools">
-<meta property="og:image" content="http://lnplayer.github.io/img/Windows下pip安装以及virtualenv环境搭建/windows1.png">
-<meta property="og:image" content="http://lnplayer.github.io/img/Windows下pip安装以及virtualenv环境搭建/windows2.png">
-<meta property="og:image" content="http://lnplayer.github.io/img/Windows下pip安装以及virtualenv环境搭建/windows3.png">
-<meta property="og:updated_time" content="2017-04-21T07:27:10.000Z">
+<meta property="og:description" content="maven仓库加载问题前言maven是当前非常流行的项目管理工具，各大公司几乎都在使用，然而本人在使用maven的过程中总是或多或少遇到一些问题，特此整理并记录下来，方便以后再次遇到这些问题时能够及时解决。">
+<meta property="og:updated_time" content="2017-04-23T02:08:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Windows下pip安装以及virtualenv环境搭建">
-<meta name="twitter:description" content="Windows下pip安装以及virtualenv环境搭建 确保已安装python环境 进入python的官网下载工具，网址如下：https://pypi.python.org/pypi/setuptools">
-<meta name="twitter:image" content="http://lnplayer.github.io/img/Windows下pip安装以及virtualenv环境搭建/windows1.png">
+<meta name="twitter:title" content="maven仓库加载问题">
+<meta name="twitter:description" content="maven仓库加载问题前言maven是当前非常流行的项目管理工具，各大公司几乎都在使用，然而本人在使用maven的过程中总是或多或少遇到一些问题，特此整理并记录下来，方便以后再次遇到这些问题时能够及时解决。">
 
 
 
@@ -132,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://lnplayer.github.io/2015/01/16/Windows下pip安装以及virtualenv环境搭建/"/>
+  <link rel="canonical" href="http://lnplayer.github.io/2016/04/23/maven仓库加载问题/"/>
 
 
 
 
 
-  <title> Windows下pip安装以及virtualenv环境搭建 | lnplayer's Blog </title>
+  <title> maven仓库加载问题 | lnplayer's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -277,7 +273,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lnplayer.github.io/2015/01/16/Windows下pip安装以及virtualenv环境搭建/">
+    <link itemprop="mainEntityOfPage" href="http://lnplayer.github.io/2016/04/23/maven仓库加载问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Ning">
@@ -298,7 +294,7 @@
             
             
               
-                Windows下pip安装以及virtualenv环境搭建
+                maven仓库加载问题
               
             
           </h1>
@@ -313,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-16T14:44:34+08:00">
-                2015-01-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-23T10:43:23+08:00">
+                2016-04-23
               </time>
             
 
@@ -332,9 +328,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/01/16/Windows下pip安装以及virtualenv环境搭建/#comments" itemprop="discussionUrl">
+                <a href="/2016/04/23/maven仓库加载问题/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2015/01/16/Windows下pip安装以及virtualenv环境搭建/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2016/04/23/maven仓库加载问题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,48 +360,13 @@
       
 
       
-        <h1 id="Windows下pip安装以及virtualenv环境搭建"><a href="#Windows下pip安装以及virtualenv环境搭建" class="headerlink" title="Windows下pip安装以及virtualenv环境搭建"></a>Windows下pip安装以及virtualenv环境搭建</h1><ol>
-<li>确保已安装python环境</li>
-<li>进入python的官网下载工具，网址如下：<a href="https://pypi.python.org/pypi/setuptools" target="_blank" rel="external">https://pypi.python.org/pypi/setuptools</a></li>
-</ol>
+        <h1 id="maven仓库加载问题"><a href="#maven仓库加载问题" class="headerlink" title="maven仓库加载问题"></a>maven仓库加载问题</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>maven是当前非常流行的项目管理工具，各大公司几乎都在使用，然而本人在使用maven的过程中总是或多或少遇到一些问题，特此整理并记录下来，方便以后再次遇到这些问题时能够及时解决。</p>
 <a id="more"></a>
-<p><img src="/img/Windows下pip安装以及virtualenv环境搭建/windows1.png" alt=""></p>
-<ol>
-<li><p>找到ez_setup.py，点击下载，或者点击将其中内容进行复制，在本地创建文件ez_setup.py，将内容粘贴进去。</p>
-</li>
-<li><p>双击运行下载好的文件，运行成功后，进入Python安装目录下Scripts文件夹下，发现easy_install以及pip相关文件已正常添加。</p>
-</li>
-</ol>
-<p><img src="/img/Windows下pip安装以及virtualenv环境搭建/windows2.png" alt=""></p>
-<ol>
-<li><p>为了方便在cmd下使用常用命令，将Scripts文件夹路径添加到环境变量中，假设你在缺省路径安装了 Python 2.7 ，那么就应该添加如下内容:</p>
-<p> ;C:\Python27\Scripts</p>
-</li>
-<li><p>至此pip/easy_install安装完毕。</p>
-</li>
-<li><p>打开cmd窗口，切换到合适路径下，输入命令:</p>
-<p> pip install virtualenv </p>
-</li>
-<li><p>安装完毕后发现Scripts目录下，virtualenv相关文件已正常添加</p>
-</li>
-</ol>
-<p><img src="/img/Windows下pip安装以及virtualenv环境搭建/windows3.png" alt=""></p>
-<ol>
-<li><p>至此全部环境搭建成功~</p>
-</li>
-<li><p>进入一个希望创建虚拟Python环境的文件夹下，输入命令：</p>
-<p>virtualenv venv<br>cmd 的当前目录下面多了一个 venv 文件夹,这个文件夹保存着当前Python虚拟环境。</p>
-</li>
-<li><p>virtualenv命令使用</p>
-<p>开启：</p>
-<pre><code>\venv\Scripts\activate
-</code></pre><p>关闭：</p>
-<pre><code>\venv\Scripts\deactivate
-</code></pre><p>查看当前虚拟环境配置信息</p>
-<pre><code>\venv\Scripts\activate
-pip list
-</code></pre></li>
-</ol>
+<h2 id="maven仓库介绍"><a href="#maven仓库介绍" class="headerlink" title="maven仓库介绍"></a>maven仓库介绍</h2><h3 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h3><p>本地仓库在本人看来就是一个类似于缓存的地方，当构建新的项目时，根据pom.xml文件中的依赖去远程仓库下载jar包，然后将其存放在本地仓库，当下次再去构建项目时，首先会到本地仓库中查找是否已存在相关依赖，如果有则直接添加依赖，如果没有则再去远程仓库下载。</p>
+<p>本地仓库的路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">该路径可以通过maven的配置文件setting.xml进行修改</div><div class="line"></div><div class="line">	&lt;settings&gt;  </div><div class="line">    	&lt;localRepository&gt;新本地仓库地址&lt;/localRepository&gt;  </div><div class="line">	&lt;/settings&gt; </div><div class="line"></div><div class="line">### 远程仓库</div><div class="line"></div><div class="line">#### 中央仓库</div><div class="line"></div><div class="line">中央仓库就是在安装maven默认的远程仓库，当构建新的项目时，会去该仓库地址进行下载相关依赖。该仓库是在maven的超级pom文件中进行配置。</div><div class="line"></div><div class="line">	&lt;repositories&gt;  </div><div class="line">   		&lt;repository&gt;  </div><div class="line">     		&lt;id&gt;central&lt;/id&gt;   </div><div class="line">     		&lt;url&gt;http://repo1.maven.org/maven2&lt;/url&gt;  </div><div class="line">   		&lt;/repository&gt;  </div><div class="line">	&lt;/repositories&gt;</div><div class="line">	</div><div class="line">这里要记住的一点是中央仓库的id是central, url是http://repo1.maven.org/maven2,这是一个国外的地址，下载的时候速度会比较慢。</div><div class="line"></div><div class="line">#### 私服</div><div class="line"></div><div class="line">假如你到了一个公司，参与到他们的项目中进行开发，他们内部往往也有一些jar包需要依赖，而这些依赖由于并未对外开放，放在了公司内部的局域网上，所以在中央仓库中肯定是找不到的，在这种情况下你不得不添加该局域网远程仓库的地址。</div><div class="line"></div><div class="line">在项目pom.xml文件中</div><div class="line"></div><div class="line">	&lt;repositories&gt;</div><div class="line">    	&lt;repository&gt;</div><div class="line">      		&lt;id&gt;公司仓库id&lt;/id&gt;</div><div class="line">      		&lt;name&gt;公司仓库名称&lt;/name&gt;</div><div class="line">      		&lt;url&gt;公司仓库地址&lt;/url&gt;</div><div class="line">      		&lt;releases&gt;</div><div class="line">        		&lt;enabled&gt;true&lt;/enabled&gt;</div><div class="line">      		&lt;/releases&gt;</div><div class="line">      		&lt;snapshots&gt;</div><div class="line">        		&lt;enabled&gt;false&lt;/enabled&gt;</div><div class="line">      		&lt;/snapshots&gt;</div><div class="line">    	&lt;/repository&gt;</div><div class="line">  	&lt;/repositories&gt;</div><div class="line">  	</div><div class="line">## maven使用中的问题</div><div class="line"></div><div class="line">### 1. 速度太慢	</div><div class="line"></div><div class="line">正如前文所说，由于maven默认的中央仓库是国外的地址，由于某些原因，访问起来速度奇慢无比，如果加载的依赖比较少，还可以勉强使用，但是项目一旦稍微大点，则非常影响使用（本人深有体会），所以这里推荐使用镜像。</div><div class="line"></div><div class="line">使用国内的一些镜像仓库，可以在setting.xml中进行如下设置</div><div class="line"></div><div class="line">	&lt;mirrors&gt;</div><div class="line">    	&lt;mirror&gt;</div><div class="line">      		&lt;id&gt;alimaven&lt;/id&gt;</div><div class="line">      		&lt;name&gt;aliyun maven&lt;/name&gt;</div><div class="line">      		&lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</div><div class="line">      		&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;        </div><div class="line">    	&lt;/mirror&gt;</div><div class="line">  	&lt;/mirrors&gt;</div><div class="line"></div><div class="line">其中的```&lt;mirrorOf&gt;central&lt;/mirrorOf&gt; ``` 意思是指对于所有访问central(默认中央仓库的id，前文有提到)的请求，都将被拦截，并从本镜像仓库寻找相关的依赖包返还给用户。</div><div class="line"></div><div class="line">在这里```&lt;mirrorOf&gt;central&lt;/mirrorOf&gt; ```也可以写成```&lt;mirrorOf&gt;*&lt;/mirrorOf&gt; ```,表示的是对于所有的请求，都将被拦截。</div><div class="line"></div><div class="line">### 2. Missing artifact</div><div class="line"></div><div class="line">问题  ```Cound not transfer artifact xxxxxxx......</div></pre></td></tr></table></figure></p>
+<p>同样是由于maven默认的中央仓库是国外的地址，导致在下载过程中网络不佳，经常出现一些超时或者其他问题，按说这种情况进行重试即可，然而实际会在本地仓库生成一份以lastUpdated结尾的文件。</p>
+<p>解决办法：打开~/.m2/repository文件夹，找到该artifact文件夹，删除，然后重新构建。<br>本人建议：由于经常会出现很多的这种错误，所以往往几次删除之内很难解决问题，所以本人在使用最初都是直接把repository文件夹整个的删除（太年轻），后来发现其实只要换成国内镜像，几乎就再也不会出现这个问题，推荐更换镜像。</p>
+<h2 id="maven仓库编译顺序"><a href="#maven仓库编译顺序" class="headerlink" title="maven仓库编译顺序"></a>maven仓库编译顺序</h2><p>本地仓库 &gt; pom中的repository &gt; mirror</p>
 
       
     </div>
@@ -451,7 +412,7 @@ pip list
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/maven/" rel="tag"># maven</a>
           
         </div>
       
@@ -464,8 +425,8 @@ pip list
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/23/maven仓库加载问题/" rel="next" title="maven仓库加载问题">
-                <i class="fa fa-chevron-left"></i> maven仓库加载问题
+              <a href="/2017/04/20/hello-world/" rel="next" title="Hello World!">
+                <i class="fa fa-chevron-left"></i> Hello World!
               </a>
             
           </div>
@@ -473,6 +434,10 @@ pip list
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/01/16/Windows下pip安装以及virtualenv环境搭建/" rel="prev" title="Windows下pip安装以及virtualenv环境搭建">
+                Windows下pip安装以及virtualenv环境搭建 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -610,7 +575,7 @@ pip list
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows下pip安装以及virtualenv环境搭建"><span class="nav-number">1.</span> <span class="nav-text">Windows下pip安装以及virtualenv环境搭建</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#maven仓库加载问题"><span class="nav-number">1.</span> <span class="nav-text">maven仓库加载问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven仓库介绍"><span class="nav-number">1.2.</span> <span class="nav-text">maven仓库介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地仓库"><span class="nav-number">1.2.1.</span> <span class="nav-text">本地仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven仓库编译顺序"><span class="nav-number">1.3.</span> <span class="nav-text">maven仓库编译顺序</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -780,9 +745,9 @@ pip list
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lnplayer.github.io/2015/01/16/Windows下pip安装以及virtualenv环境搭建/';
-          this.page.identifier = '2015/01/16/Windows下pip安装以及virtualenv环境搭建/';
-          this.page.title = 'Windows下pip安装以及virtualenv环境搭建';
+          this.page.url = 'http://lnplayer.github.io/2016/04/23/maven仓库加载问题/';
+          this.page.identifier = '2016/04/23/maven仓库加载问题/';
+          this.page.title = 'maven仓库加载问题';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lnplayer.disqus.com.disqus.com/embed.js';
