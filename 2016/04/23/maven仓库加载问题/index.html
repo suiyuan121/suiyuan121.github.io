@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://lnplayer.github.io/2016/04/23/maven仓库加载问题/index.html">
 <meta property="og:site_name" content="lnplayer's Blog">
 <meta property="og:description" content="maven仓库加载问题前言maven是当前非常流行的项目管理工具，各大公司几乎都在使用，然而本人在使用maven的过程中总是或多或少遇到一些问题，特此整理并记录下来，方便以后再次遇到这些问题时能够及时解决。">
-<meta property="og:updated_time" content="2017-04-23T02:18:46.000Z">
+<meta property="og:updated_time" content="2017-04-23T02:20:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="maven仓库加载问题">
 <meta name="twitter:description" content="maven仓库加载问题前言maven是当前非常流行的项目管理工具，各大公司几乎都在使用，然而本人在使用maven的过程中总是或多或少遇到一些问题，特此整理并记录下来，方便以后再次遇到这些问题时能够及时解决。">
@@ -363,7 +363,8 @@
         <h1 id="maven仓库加载问题"><a href="#maven仓库加载问题" class="headerlink" title="maven仓库加载问题"></a>maven仓库加载问题</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>maven是当前非常流行的项目管理工具，各大公司几乎都在使用，然而本人在使用maven的过程中总是或多或少遇到一些问题，特此整理并记录下来，方便以后再次遇到这些问题时能够及时解决。</p>
 <a id="more"></a>
 <h2 id="maven仓库介绍"><a href="#maven仓库介绍" class="headerlink" title="maven仓库介绍"></a>maven仓库介绍</h2><h3 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h3><p>本地仓库在本人看来就是一个类似于缓存的地方，当构建新的项目时，根据pom.xml文件中的依赖去远程仓库下载jar包，然后将其存放在本地仓库，当下次再去构建项目时，首先会到本地仓库中查找是否已存在相关依赖，如果有则直接添加依赖，如果没有则再去远程仓库下载。</p>
-<p>本地仓库的路径<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">用户路径/.m2/repository</div></pre></td></tr></table></figure></p>
+<p>本地仓库的路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">用户路径/.m2/repository</div></pre></td></tr></table></figure>
 <p>该路径可以通过maven的配置文件setting.xml进行修改</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;settings&gt;</div><div class="line">	&lt;localRepository&gt;新的本地仓库地址&lt;/localRepository&gt;  </div><div class="line">&lt;/settings&gt;</div></pre></td></tr></table></figure>
 <h3 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h3><h4 id="中央仓库"><a href="#中央仓库" class="headerlink" title="中央仓库"></a>中央仓库</h4><p>中央仓库就是在安装maven默认的远程仓库，当构建新的项目时，会去该仓库地址进行下载相关依赖。该仓库是在maven的超级pom文件中进行配置。</p>
