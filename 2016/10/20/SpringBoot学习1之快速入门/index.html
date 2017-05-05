@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot1.png">
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot2.png">
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot3.png">
-<meta property="og:updated_time" content="2017-05-05T02:33:58.000Z">
+<meta property="og:updated_time" content="2017-05-05T02:35:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot学习1之快速入门">
 <meta name="twitter:description" content="SpringBoot学习1之快速入门环境准备Java环境一个趁手的IDE(本文使用Eclipse)Maven环境(可以自己安装或者使用IDE内置的maven)">
@@ -408,48 +408,45 @@
 <p>创建好的项目结构如图所示</p>
 <p><img src="/img/SpringBoot学习1之快速入门/springboot3.png" alt=""></p>
 <p>并在其pom.xml中引入如下所示：</p>
-<pre><code class="xml"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span>
-  <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span>
+<p>```xml</p>
+<p><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"><br>    <modelversion>4.0.0</modelversion></project></p>
+<pre><code>&lt;groupId&gt;SpringBoot&lt;/groupId&gt;
+&lt;artifactId&gt;SpringBoot&lt;/artifactId&gt;
+&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+&lt;packaging&gt;jar&lt;/packaging&gt;
+&lt;name&gt;SpringBoot&lt;/name&gt;
+&lt;url&gt;http://maven.apache.org&lt;/url&gt;
+&lt;parent&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+  &lt;version&gt;1.2.5.RELEASE&lt;/version&gt;
+  &lt;relativePath/&gt;
+&lt;/parent&gt;
+&lt;properties&gt;
+  &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+&lt;/properties&gt;
+&lt;dependencies&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;version&gt;3.8.1&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+  &lt;/dependency&gt;
 
-    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>SpringBoot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>SpringBoot<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">name</span>&gt;</span>SpringBoot<span class="tag">&lt;/<span class="name">name</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.apache.org<span class="tag">&lt;/<span class="name">url</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">parent</span>&gt;</span>
-      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>
-      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>
-      <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span>
-      <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span>
-    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">properties</span>&gt;</span>
-      <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span>
-    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>
-      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span>
-      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>
-
-      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>
-      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span>
-    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span>
-    <span class="tag">&lt;<span class="name">build</span>&gt;</span>
-      <span class="tag">&lt;<span class="name">plugins</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span>
-          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>
-          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>
-        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span>
-      <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span>
-    <span class="tag">&lt;/<span class="name">build</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">project</span>&gt;</span>
-</code></pre>
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+&lt;/dependencies&gt;
+&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre><p><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">重新构建项目，右键**项目**-&gt;**Maven**-&gt;**Update Project**将**App.java**文件改写成如下所示</div><div class="line"></div><div class="line">```javapackage SpringBoot.SpringBoot;</div><div class="line">import org.springframework.boot.SpringApplication;import org.springframework.boot.autoconfigure.SpringBootApplication;import org.springframework.web.bind.annotation.RequestMapping;import org.springframework.web.bind.annotation.RestController;@SpringBootApplication@RestControllerpublic class App &#123;    @RequestMapping(&quot;/&quot;)    public String greeting() &#123;        return &quot;Hello World!&quot;;    &#125;</div><div class="line">    public static void main(String[] args) &#123;        SpringApplication.run(App.class, args);    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
