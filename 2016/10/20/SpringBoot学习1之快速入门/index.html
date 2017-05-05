@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot1.png">
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot2.png">
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot3.png">
-<meta property="og:updated_time" content="2017-05-05T01:57:11.000Z">
+<meta property="og:updated_time" content="2017-05-05T02:02:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot学习1之快速入门">
 <meta name="twitter:description" content="SpringBoot学习1之快速入门环境准备Java环境一个趁手的IDE(本文使用Eclipse)Maven环境(可以自己安装或者使用IDE内置的maven)">
@@ -527,11 +527,19 @@ public class App {
 
 
 接下来创建资源文件夹（source folder） **&lt;font color = red&gt;src/main/resources&lt;/font&gt;**,并在该目录下创建普通文件夹templates，并在该文件夹下创建模板文件hello.html
-</code></pre><p>&lt;!DOCTYPE HTML&gt;</p>
-<p><html xmlns:th="http://www.thymeleaf.org"></html></p>
-<p><head><br>    <title>Hello SomeOne</title><br>    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><br></head></p>
-<p><body><br>    <p th:text="'Hello, ' + ${id} + '!'"><br></p></body><br><br>```</p>
-<p><strong><font color="red">th:text=”‘Hello, ‘ + ${id} + ‘!’” </font></strong>也就是将我们之前在@Controller方法里添加至Model的属性name进行渲染，并放入</p><p>标签中（因为th:text是</p><p>标签的属性）。</p>
+
+```html
+&lt;!DOCTYPE HTML&gt;
+&lt;html xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;Hello SomeOne&lt;/title&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p th:text=&quot;&apos;Hello, &apos; + ${id} + &apos;!&apos;&quot; /&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><strong><font color="red">th:text=”‘Hello, ‘ + ${id} + ‘!’” </font></strong>也就是将我们之前在@Controller方法里添加至Model的属性name进行渲染，并放入</p><p>标签中（因为th:text是</p><p>标签的属性）。</p>
 
       
     </div>
