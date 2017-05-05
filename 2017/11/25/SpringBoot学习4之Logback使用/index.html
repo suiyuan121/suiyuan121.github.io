@@ -94,17 +94,21 @@
 
 
 
-<meta name="description" content="SpringBoot学习2之配置文件虽然SpringBoot号称零配置，但是在实际开发过程中，我们常常需要进行一些额外信息的配置，比如数据库连接的一些参数，或者分布式服务的相关配置等等，那么这个时候就有可能用到我们本章的内容。">
+<meta name="description" content="SpringBoot学习4之Logback使用在开发过程中，为了能够看到一些程序执行的中间结果，往往会在代码中加入一些标准输出到屏幕(Java中一般使用System.out.println)，但是由由于IO操作也是由当前线程执行，只有当当前输出语句执行完成之后，才会有继续执行下面的任务。所以会影响代码的执行效率。 而是用一些Log工具，不但可以控制日志输出，还可以控制日志输出的级别，同时不影响程序">
 <meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot学习2之配置文件">
-<meta property="og:url" content="http://lnplayer.github.io/2016/10/22/SpringBoot学习2之配置文件/index.html">
+<meta property="og:title" content="SpringBoot学习4之Logback使用">
+<meta property="og:url" content="http://lnplayer.github.io/2017/11/25/SpringBoot学习4之Logback使用/index.html">
 <meta property="og:site_name" content="lnplayer's Blog">
-<meta property="og:description" content="SpringBoot学习2之配置文件虽然SpringBoot号称零配置，但是在实际开发过程中，我们常常需要进行一些额外信息的配置，比如数据库连接的一些参数，或者分布式服务的相关配置等等，那么这个时候就有可能用到我们本章的内容。">
-<meta property="og:updated_time" content="2017-05-05T06:20:36.000Z">
+<meta property="og:description" content="SpringBoot学习4之Logback使用在开发过程中，为了能够看到一些程序执行的中间结果，往往会在代码中加入一些标准输出到屏幕(Java中一般使用System.out.println)，但是由由于IO操作也是由当前线程执行，只有当当前输出语句执行完成之后，才会有继续执行下面的任务。所以会影响代码的执行效率。 而是用一些Log工具，不但可以控制日志输出，还可以控制日志输出的级别，同时不影响程序">
+<meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习4之Logback使用/springboot1.png">
+<meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习4之Logback使用/springboot2.png">
+<meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习4之Logback使用/springboot3.png">
+<meta property="og:updated_time" content="2017-05-05T08:19:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot学习2之配置文件">
-<meta name="twitter:description" content="SpringBoot学习2之配置文件虽然SpringBoot号称零配置，但是在实际开发过程中，我们常常需要进行一些额外信息的配置，比如数据库连接的一些参数，或者分布式服务的相关配置等等，那么这个时候就有可能用到我们本章的内容。">
+<meta name="twitter:title" content="SpringBoot学习4之Logback使用">
+<meta name="twitter:description" content="SpringBoot学习4之Logback使用在开发过程中，为了能够看到一些程序执行的中间结果，往往会在代码中加入一些标准输出到屏幕(Java中一般使用System.out.println)，但是由由于IO操作也是由当前线程执行，只有当当前输出语句执行完成之后，才会有继续执行下面的任务。所以会影响代码的执行效率。 而是用一些Log工具，不但可以控制日志输出，还可以控制日志输出的级别，同时不影响程序">
+<meta name="twitter:image" content="http://lnplayer.github.io/img/SpringBoot学习4之Logback使用/springboot1.png">
 
 
 
@@ -132,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://lnplayer.github.io/2016/10/22/SpringBoot学习2之配置文件/"/>
+  <link rel="canonical" href="http://lnplayer.github.io/2017/11/25/SpringBoot学习4之Logback使用/"/>
 
 
 
 
 
-  <title> SpringBoot学习2之配置文件 | lnplayer's Blog </title>
+  <title> SpringBoot学习4之Logback使用 | lnplayer's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -287,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lnplayer.github.io/2016/10/22/SpringBoot学习2之配置文件/">
+    <link itemprop="mainEntityOfPage" href="http://lnplayer.github.io/2017/11/25/SpringBoot学习4之Logback使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Ning">
@@ -308,7 +312,7 @@
             
             
               
-                SpringBoot学习2之配置文件
+                SpringBoot学习4之Logback使用
               
             
           </h1>
@@ -323,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-22T11:47:27+08:00">
-                2016-10-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T16:11:15+08:00">
+                2017-11-25
               </time>
             
 
@@ -364,9 +368,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/10/22/SpringBoot学习2之配置文件/#comments" itemprop="discussionUrl">
+                <a href="/2017/11/25/SpringBoot学习4之Logback使用/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/10/22/SpringBoot学习2之配置文件/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/11/25/SpringBoot学习4之Logback使用/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -396,37 +400,26 @@
       
 
       
-        <h1 id="SpringBoot学习2之配置文件"><a href="#SpringBoot学习2之配置文件" class="headerlink" title="SpringBoot学习2之配置文件"></a>SpringBoot学习2之配置文件</h1><p>虽然SpringBoot号称零配置，但是在实际开发过程中，我们常常需要进行一些额外信息的配置，比如数据库连接的一些参数，或者分布式服务的相关配置等等，那么这个时候就有可能用到我们本章的内容。</p>
+        <h1 id="SpringBoot学习4之Logback使用"><a href="#SpringBoot学习4之Logback使用" class="headerlink" title="SpringBoot学习4之Logback使用"></a>SpringBoot学习4之Logback使用</h1><p>在开发过程中，为了能够看到一些程序执行的中间结果，往往会在代码中加入一些标准输出到屏幕(Java中一般使用System.out.println)，但是由由于IO操作也是由当前线程执行，只有当当前输出语句执行完成之后，才会有继续执行下面的任务。所以会影响代码的执行效率。</p>
+<p>而是用一些Log工具，不但可以控制日志输出，还可以控制日志输出的级别，同时不影响程序的正常执行。</p>
+<p>本文在这里介绍了SpringBoot开发过程中经常使用到的Logback工具的简单使用</p>
 <a id="more"></a>
-<h2 id="SpringBoot-添加自定义属性"><a href="#SpringBoot-添加自定义属性" class="headerlink" title="SpringBoot 添加自定义属性"></a>SpringBoot 添加自定义属性</h2><p>当我们在创建一个springboot项目时，可以在其src/main/java/resources目录下创建一个名为<strong>application.properties</strong>的文件或者<strong>application.yml</strong>文件作为配置文件，springboot会默认对该名称的文件进行读取。</p>
-<p>在application.yml中添加如下属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">test:</div><div class="line">    id: 1</div><div class="line">    name: bob</div></pre></td></tr></table></figure>
-<p><strong>注意，不要使用tab，制表符等进行缩进，请使用空格</strong></p>
-<p>如果想要在程序中读取以上属性，可以使用<strong><font color="red">@Value(“${属性名}”)</font></strong>注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;test.id&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line"></div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">(Model model)</span> </span>&#123;</div><div class="line">        model.addAttribute(<span class="string">"id"</span>, id);</div><div class="line">        <span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        SpringApplication.run(App.class, args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="将属性赋值给实体类"><a href="#将属性赋值给实体类" class="headerlink" title="将属性赋值给实体类"></a>将属性赋值给实体类</h2><p>当属性非常多的时候，如果每一个都使用<strong>@Value</strong>注解，则过于麻烦，这个时候，我们可以根据这些属性，给他们创造一个统一的实体类，比如</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"test"</span>)</div><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConfigBean</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>同时需要在application类添加@EnableConfigurationProperties</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@EnableConfigurationProperties</span>(&#123;ConfigBean.class&#125;)  </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    ConfigBean configBean;</div><div class="line"></div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">(Model model)</span> </span>&#123;</div><div class="line">        model.addAttribute(<span class="string">"id"</span>, configBean.getId());</div><div class="line">        <span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        SpringApplication.run(App.class, args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>启动工程，信息读取成功</p>
-<p><strong>@EnableConfigurationProperties</strong>注解中可以存放多个类，用,分割，比如<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@EnableConfigurationProperties</span>(&#123;ConfigBean1.class，ConfigBean2.class &#125;)</div></pre></td></tr></table></figure></p>
-<p>同时，如果你的配置信息不想放到<strong>application.yml</strong>这个默认的文件中，你也可以将其放到自己的配置文件中，比如该自定义配置文件叫做<strong>”myapplication.yml”</strong>，然后在配置实体类上额外添加注解即可。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@PropertySource</span>(value = <span class="string">"classpath: myapplication.yml"</span>)</div></pre></td></tr></table></figure></p>
-<h2 id="多环境配置文件"><a href="#多环境配置文件" class="headerlink" title="多环境配置文件"></a>多环境配置文件</h2><p>在实际开发过程中，为了保证线上程序的正确性，常常使用多套配置，比如开发一套配置，测试一套配置，实际生产一套配置，而我们需要在这些多个配置之间来回切换。<br>我们可以通过在代码中更改@PropertySource 中的内容来进行切换，但是这样过于麻烦</p>
-<p>其实我们可以采用如下手段：</p>
-<p>首先，给各个开发环境进行命名</p>
-<ol>
-<li><strong>application-test.yml：测试环境</strong></li>
-<li><strong>application-dev.yml：开发环境</strong></li>
-<li><strong>application-prod.yml：生产环境</strong></li>
-</ol>
-<p>然后只需要在application.yml中配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">spring:</div><div class="line">  profiles:</div><div class="line">    active: dev</div></pre></td></tr></table></figure>
-<p>当需要切换的时候直接将active这一属性进行切换即可（test/dev/prod）</p>
-<p>比如我们在test 中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">server:</div><div class="line">  port: 8081</div></pre></td></tr></table></figure>
-<p>在dev中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">server:</div><div class="line">  port: 8082</div></pre></td></tr></table></figure></p>
-<p>然后现在运行就会发现，浏览器访问地址变为了<strong><a href="http://localhost:8082/" target="_blank" rel="external">http://localhost:8082/</a></strong></p>
-<p>说明：只要格式按照<strong><font color="red">application-{环境标识}.yml</font></strong>或者<strong><font color="red">application-{环境标识}.properties</font></strong>即可，不一定必须是<strong>dev/test/prod/</strong>，以上命名只是为了方便区分。</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>由于SpringBoot默认支持Logback，所以无需添加额外的引用，直接在配置文件里配置即可</p>
+<p>在工程中新建类LogHelper，专门处理Log相关功能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.slf4j.Logger;</div><div class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogHelper</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(<span class="keyword">this</span>.getClass());  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">helpMethod</span><span class="params">()</span></span>&#123;  </div><div class="line">        logger.debug(<span class="string">"This is a debug message"</span>);  </div><div class="line">        logger.info(<span class="string">"This is an info message"</span>);  </div><div class="line">        logger.warn(<span class="string">"This is a warn message"</span>);  </div><div class="line">        logger.error(<span class="string">"This is an error message"</span>);  </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在该类中，分别打印了debug , info , warn ,error 四种级别的的信息<br>调用该类，可以看到执行结果</p>
+<p><img src="/img/SpringBoot学习4之Logback使用/springboot1.png" alt=""></p>
+<p>这是Logback默认配置下的显示信息，我们注意到debug级别的信息并没有打印下来</p>
+<p>这个很容易设置，只要在application.yml中配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">logging:</div><div class="line">  file: log.log  </div><div class="line">  level:</div><div class="line">    SpringBoot.SpringBoot : debug</div></pre></td></tr></table></figure>
+<p>上面的<strong><font color="red">log.log</font></strong>是输出的日志文件名<br>SpringBoot.SpringBoot是包名，即你希望设置日志级别的包名，将其设置为debug<br>再次调用该类</p>
+<p><img src="/img/SpringBoot学习4之Logback使用/springboot2.png" alt=""></p>
+<p>发现多出了debug信息<br>同时，工程目录下发现生成的日志文件</p>
+<p><img src="/img/SpringBoot学习4之Logback使用/springboot3.png" alt=""></p>
+<h2 id="logback-xml文件配置"><a href="#logback-xml文件配置" class="headerlink" title="logback.xml文件配置"></a>logback.xml文件配置</h2><p>以上功能基本可以满足个人的开发，但是当我们需要更加丰富的功能时，则需要对logback.xml文件进行更加细致的配置</p>
+<p><strong>//待续</strong></p>
+<p><strong><font color="red">如果在 logback.xml 和 application.yml 中定义了相同的配置（如都配置了 SpringBoot.SpringBoot）但是输出级别不同，则 application. yml 的优先级高于 logback.xml  </font></strong></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="http://blog.csdn.net/sun_t89/article/details/52130839" target="_blank" rel="external"></a><br><a href="http://412887952-qq-com.iteye.com/blog/2307244" target="_blank" rel="external"></a></p>
 
       
     </div>
@@ -485,18 +478,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/03/SpringBoot学习3之数据库集成mybatis/" rel="next" title="SpringBoot学习3之数据库集成mybatis">
-                <i class="fa fa-chevron-left"></i> SpringBoot学习3之数据库集成mybatis
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/10/20/SpringBoot学习1之快速入门/" rel="prev" title="SpringBoot学习1之快速入门">
-                SpringBoot学习1之快速入门 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/21/hexo搭建个人博客/" rel="prev" title="hexo搭建个人博客">
+                hexo搭建个人博客 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -644,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot学习2之配置文件"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot学习2之配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot-添加自定义属性"><span class="nav-number">1.1.</span> <span class="nav-text">SpringBoot 添加自定义属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将属性赋值给实体类"><span class="nav-number">1.2.</span> <span class="nav-text">将属性赋值给实体类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多环境配置文件"><span class="nav-number">1.3.</span> <span class="nav-text">多环境配置文件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot学习4之Logback使用"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot学习4之Logback使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本使用"><span class="nav-number">1.1.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#logback-xml文件配置"><span class="nav-number">1.2.</span> <span class="nav-text">logback.xml文件配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.3.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -814,9 +803,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lnplayer.github.io/2016/10/22/SpringBoot学习2之配置文件/';
-          this.page.identifier = '2016/10/22/SpringBoot学习2之配置文件/';
-          this.page.title = 'SpringBoot学习2之配置文件';
+          this.page.url = 'http://lnplayer.github.io/2017/11/25/SpringBoot学习4之Logback使用/';
+          this.page.identifier = '2017/11/25/SpringBoot学习4之Logback使用/';
+          this.page.title = 'SpringBoot学习4之Logback使用';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lnplayer.disqus.com.disqus.com/embed.js';
