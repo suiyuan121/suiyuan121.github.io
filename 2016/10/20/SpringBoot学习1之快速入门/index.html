@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot2.png">
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot3.png">
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot4.png">
-<meta property="og:updated_time" content="2017-05-05T03:43:53.000Z">
+<meta property="og:updated_time" content="2017-05-05T03:45:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot学习1之快速入门">
 <meta name="twitter:description" content="SpringBoot学习1之快速入门环境准备Java环境一个趁手的IDE(本文使用Eclipse)Maven环境(可以自己安装或者使用IDE内置的maven)">
@@ -437,7 +437,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>接下来创建资源文件夹（source folder） <strong><font color="red">src/main/resources</font></strong>,并在该目录下创建普通文件夹templates，并在该文件夹下创建模板文件hello.html</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE HTML&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello SomeOne<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">th:text</span>=<span class="string">"'Hello, ' + $&#123;id&#125; + '!'"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p><strong><font color="red">th:text=”‘Hello, ‘ + ${id} + ‘!’” </font></strong>也就是将我们之前在@Controller方法里添加至Model的属性name进行渲染，并放入&lt;p&gt;标签中（因为th:text是&lt;p&gt;标签的属性）。</p>
+<p><strong><font color="red">th:text=”‘Hello, ‘ + ${id} + ‘!’” </font></strong>也就是将我们之前在@Controller方法里添加至Model的属性id进行渲染，并放入</p><p>标签中（因为th:text是</p><p>标签的属性）。</p>
 
       
     </div>
@@ -587,7 +587,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
