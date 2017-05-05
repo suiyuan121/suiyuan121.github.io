@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot2.png">
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot3.png">
 <meta property="og:image" content="http://lnplayer.github.io/img/SpringBoot学习1之快速入门/springboot4.png">
-<meta property="og:updated_time" content="2017-05-05T03:21:05.000Z">
+<meta property="og:updated_time" content="2017-05-05T03:22:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot学习1之快速入门">
 <meta name="twitter:description" content="SpringBoot学习1之快速入门环境准备Java环境一个趁手的IDE(本文使用Eclipse)Maven环境(可以自己安装或者使用IDE内置的maven)">
@@ -439,38 +439,18 @@
 <p>上文中的@RestController如果替换成@Controller则会提示找不到名为“Hello World!”的页面。</p>
 <p>所以一般不要用@RestController注解修饰某个类，一般在实际使用时，可以选择使用@Controller注解类，在该类的方法中有选择的使用@ResponseBody,这样的话，当某个方法需要返回的是一个视图的时候就不需要添加@ResponseBody，当需要返回的是一个json数据或者Xml等时，可以选择添加@ResponseBody</p>
 <h3 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h3><p>@RequestMapping 注解是用来处理请求地址映射的注解，可以用在类或方法上，如果用在类上，则表示所有该类中的响应方法都是以该地址作为父路径。</p>
-<pre><code class="java">@RestController
-@RequestMapping("/root")
-public class App {
-    @RequestMapping("/")
-    public String hello() {
-        return " Hello World1!";
-    }
-    //该方法的访问路径是http://localhost:8080/root
-    @RequestMapping("/hello2")
-    public String hello2() {
-        return "Hello World2!";
-    }
-    //该方法的访问路径是http://localhost:8080/root/hello2
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RestController</span><span class="meta">@RequestMapping</span>(<span class="string">"/root"</span>)<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;	<span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)	<span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">" Hello World1!"</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//该方法的访问路径是http://localhost:8080/root</span></div><div class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/hello2"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">hello2</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"Hello World2!"</span>;	&#125;	<span class="comment">//该方法的访问路径是http://localhost:8080/root/hello2</span>&#125;</div></pre></td></tr></table></figure>
+<p>在实际开发中，如果对于不同Id的用户进行不同的处理，常常需要在URL中加入变量以进行区分，@RequestMapping也提供类似的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/hello/&#123;id&#125;"</span>)<span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id) </span>&#123;    <span class="keyword">return</span> <span class="keyword">return</span> “Hello :” + id;&#125;</div></pre></td></tr></table></figure>
+<p>其中<strong><font color="red">{id}</font></strong>就是一个占位符，可以替换成实际的id，当请求路由到该方法进行处理时，该方法根据注解<strong><font color="red">@PathVariable</font></strong>取出名为”id”的值，并赋予给 int id，这样你在方法中就可以将id作为一个局部变量进行使用</p>
+<p>在实际应用中，不同的Http方法，在处理过程中可能也要进行分别处理，@RequestMapping也提供了相应的解决办法</p>
+<pre><code class="java"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>, method = RequestMethod.GET)
+<span class="function"><span class="keyword">public</span> String <span class="title">helloGet</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> <span class="string">"hello get"</span>;
 }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在实际开发中，如果对于不同Id的用户进行不同的处理，常常需要在URL中加入变量以进行区分，@RequestMapping也提供类似的方法</div><div class="line">```java@RequestMapping(&quot;/hello/&#123;id&#125;&quot;)public String hello(@PathVariable(&quot;id&quot;) int id) &#123;    return return “Hello :” + id;&#125;</div></pre></td></tr></table></figure>
-
-
-
-其中**&lt;font color = red&gt;{id}&lt;/font&gt;**就是一个占位符，可以替换成实际的id，当请求路由到该方法进行处理时，该方法根据注解**&lt;font color = red&gt;@PathVariable&lt;/font&gt;**取出名为”id”的值，并赋予给 int id，这样你在方法中就可以将id作为一个局部变量进行使用
-
-
-在实际应用中，不同的Http方法，在处理过程中可能也要进行分别处理，@RequestMapping也提供了相应的解决办法
-
-
-```java
-@RequestMapping(value = "/hello", method = RequestMethod.GET)
-public String helloGet() {
-    return "hello get";
-}
-@RequestMapping(value = "/hello", method = RequestMethod.POST)
-public String helloPost() {
-    return "hello post";
+<span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>, method = RequestMethod.POST)
+<span class="function"><span class="keyword">public</span> String <span class="title">helloPost</span><span class="params">()</span> </span>{
+    <span class="keyword">return</span> <span class="string">"hello post"</span>;
 }
 </code></pre>
 <p>即使两个方法处理的URL是一样的，但是由于访问的http方法不一样，所以依然会路由到不同的方法分别进行处理</p>
