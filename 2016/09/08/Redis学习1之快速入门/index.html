@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="Redis," />
 
 
 
@@ -94,21 +94,22 @@
 
 
 
-<meta name="description" content="Windows下pip安装以及virtualenv环境搭建 确保已安装python环境 进入python的官网下载工具，网址如下：https://pypi.python.org/pypi/setuptools">
-<meta name="keywords" content="Python">
+<meta name="description" content="Redis学习1之快速入门Redis简介redis是一个高性能的key-value数据库（可以理解成一个hashmap）">
+<meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows下pip安装以及virtualenv环境搭建">
-<meta property="og:url" content="http://lnplayer.github.io/2015/01/16/Windows下pip安装以及virtualenv环境搭建/index.html">
+<meta property="og:title" content="Redis学习1之快速入门">
+<meta property="og:url" content="http://lnplayer.github.io/2016/09/08/Redis学习1之快速入门/index.html">
 <meta property="og:site_name" content="lnplayer's Blog">
-<meta property="og:description" content="Windows下pip安装以及virtualenv环境搭建 确保已安装python环境 进入python的官网下载工具，网址如下：https://pypi.python.org/pypi/setuptools">
-<meta property="og:image" content="http://lnplayer.github.io/img/Windows下pip安装以及virtualenv环境搭建/windows1.png">
-<meta property="og:image" content="http://lnplayer.github.io/img/Windows下pip安装以及virtualenv环境搭建/windows2.png">
-<meta property="og:image" content="http://lnplayer.github.io/img/Windows下pip安装以及virtualenv环境搭建/windows3.png">
-<meta property="og:updated_time" content="2017-04-25T05:42:29.000Z">
+<meta property="og:description" content="Redis学习1之快速入门Redis简介redis是一个高性能的key-value数据库（可以理解成一个hashmap）">
+<meta property="og:image" content="http://lnplayer.github.io/img/Redis学习1之快速入门/redis1.png">
+<meta property="og:image" content="http://lnplayer.github.io/img/Redis学习1之快速入门/redis2.png">
+<meta property="og:image" content="http://lnplayer.github.io/img/Redis学习1之快速入门/redis3.png">
+<meta property="og:image" content="http://lnplayer.github.io/img/Redis学习1之快速入门/redis4.png">
+<meta property="og:updated_time" content="2017-05-08T11:50:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Windows下pip安装以及virtualenv环境搭建">
-<meta name="twitter:description" content="Windows下pip安装以及virtualenv环境搭建 确保已安装python环境 进入python的官网下载工具，网址如下：https://pypi.python.org/pypi/setuptools">
-<meta name="twitter:image" content="http://lnplayer.github.io/img/Windows下pip安装以及virtualenv环境搭建/windows1.png">
+<meta name="twitter:title" content="Redis学习1之快速入门">
+<meta name="twitter:description" content="Redis学习1之快速入门Redis简介redis是一个高性能的key-value数据库（可以理解成一个hashmap）">
+<meta name="twitter:image" content="http://lnplayer.github.io/img/Redis学习1之快速入门/redis1.png">
 
 
 
@@ -136,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://lnplayer.github.io/2015/01/16/Windows下pip安装以及virtualenv环境搭建/"/>
+  <link rel="canonical" href="http://lnplayer.github.io/2016/09/08/Redis学习1之快速入门/"/>
 
 
 
 
 
-  <title> Windows下pip安装以及virtualenv环境搭建 | lnplayer's Blog </title>
+  <title> Redis学习1之快速入门 | lnplayer's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +292,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lnplayer.github.io/2015/01/16/Windows下pip安装以及virtualenv环境搭建/">
+    <link itemprop="mainEntityOfPage" href="http://lnplayer.github.io/2016/09/08/Redis学习1之快速入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liu Ning">
@@ -312,7 +313,7 @@
             
             
               
-                Windows下pip安装以及virtualenv环境搭建
+                Redis学习1之快速入门
               
             
           </h1>
@@ -327,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-16T14:44:34+08:00">
-                2015-01-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-08T19:38:30+08:00">
+                2016-09-08
               </time>
             
 
@@ -350,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
+                  <a href="/categories/专题/" itemprop="url" rel="index">
+                    <span itemprop="name">专题</span>
                   </a>
                 </span>
 
@@ -368,9 +369,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/01/16/Windows下pip安装以及virtualenv环境搭建/#comments" itemprop="discussionUrl">
+                <a href="/2016/09/08/Redis学习1之快速入门/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2015/01/16/Windows下pip安装以及virtualenv环境搭建/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2016/09/08/Redis学习1之快速入门/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,48 +401,48 @@
       
 
       
-        <h1 id="Windows下pip安装以及virtualenv环境搭建"><a href="#Windows下pip安装以及virtualenv环境搭建" class="headerlink" title="Windows下pip安装以及virtualenv环境搭建"></a>Windows下pip安装以及virtualenv环境搭建</h1><ol>
-<li>确保已安装python环境</li>
-<li>进入python的官网下载工具，网址如下：<a href="https://pypi.python.org/pypi/setuptools" target="_blank" rel="external">https://pypi.python.org/pypi/setuptools</a></li>
-</ol>
+        <h1 id="Redis学习1之快速入门"><a href="#Redis学习1之快速入门" class="headerlink" title="Redis学习1之快速入门"></a>Redis学习1之快速入门</h1><h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><p>redis是一个高性能的key-value数据库（可以理解成一个hashmap）</p>
 <a id="more"></a>
-<p><img src="/img/Windows下pip安装以及virtualenv环境搭建/windows1.png" alt=""></p>
+<h2 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h2><p>下载地址：<a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="external">https://github.com/MSOpenTech/redis/releases</a></p>
+<p>将下载好的压缩包(<strong>Redis-x64-3.2.100.zip</strong>)解压到某目录下(<strong>D:\ redis</strong>)</p>
+<p>打开cmd窗口，进入该目录</p>
+<p>运行  <strong>redis-server.exe redis.windows.conf</strong></p>
+<p><strong><font color="red">为了方便起见，也可以将其路径加入到环境变量当中</font></strong></p>
+<p><img src="/img/Redis学习1之快速入门/redis1.png" alt=""></p>
+<p>出现如上图所示，则服务器启动成功。</p>
+<p>当前窗口不要关闭，打开另一个新的窗口，进入该目录</p>
+<p>运行  <strong>redis-cli.exe -h 127.0.0.1 -p 6379</strong></p>
+<p><img src="/img/Redis学习1之快速入门/redis2.png" alt=""></p>
+<p>出现如上图所示，则客户端启动成功。</p>
+<p>下面可以先跑一个例子测试一下<br>存入一个新的键值对，<strong>set key test </strong>(key 是键，test是值)<br>然后再取出， <strong>get key</strong></p>
+<p><img src="/img/Redis学习1之快速入门/redis3.png" alt=""></p>
+<h2 id="Redis-配置"><a href="#Redis-配置" class="headerlink" title="Redis 配置"></a>Redis 配置</h2><p>可以通过输入命令<strong>config get * </strong>获得当前所有配置<br>如果希望能够对某一项配置进行设置的话，可以输入命令<strong> config set key</strong>(key 为配置项的名称)</p>
+<p>例如可以通过<strong>config get bink</strong>获取绑定的ip地址</p>
+<p><img src="/img/Redis学习1之快速入门/redis4.png" alt=""></p>
+<h2 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h2><p>redis 支持五种数据类型</p>
 <ol>
-<li><p>找到ez_setup.py，点击下载，或者点击将其中内容进行复制，在本地创建文件ez_setup.py，将内容粘贴进去。</p>
-</li>
-<li><p>双击运行下载好的文件，运行成功后，进入Python安装目录下Scripts文件夹下，发现easy_install以及pip相关文件已正常添加。</p>
-</li>
+<li>string   字符串</li>
+<li>hash  哈希</li>
+<li>list   列表</li>
+<li>set   集合</li>
+<li>sorted set   有序集合</li>
 </ol>
-<p><img src="/img/Windows下pip安装以及virtualenv环境搭建/windows2.png" alt=""></p>
-<ol>
-<li><p>为了方便在cmd下使用常用命令，将Scripts文件夹路径添加到环境变量中，假设你在缺省路径安装了 Python 2.7 ，那么就应该添加如下内容:</p>
-<p> ;C:\Python27\Scripts</p>
-</li>
-<li><p>至此pip/easy_install安装完毕。</p>
-</li>
-<li><p>打开cmd窗口，切换到合适路径下，输入命令:</p>
-<p> pip install virtualenv </p>
-</li>
-<li><p>安装完毕后发现Scripts目录下，virtualenv相关文件已正常添加</p>
-</li>
-</ol>
-<p><img src="/img/Windows下pip安装以及virtualenv环境搭建/windows3.png" alt=""></p>
-<ol>
-<li><p>至此全部环境搭建成功~</p>
-</li>
-<li><p>进入一个希望创建虚拟Python环境的文件夹下，输入命令：</p>
-<p>virtualenv venv<br>cmd 的当前目录下面多了一个 venv 文件夹,这个文件夹保存着当前Python虚拟环境。</p>
-</li>
-<li><p>virtualenv命令使用</p>
-<p>开启：</p>
-<pre><code>\venv\Scripts\activate
-</code></pre><p>关闭：</p>
-<pre><code>\venv\Scripts\deactivate
-</code></pre><p>查看当前虚拟环境配置信息</p>
-<pre><code>\venv\Scripts\activate
-pip list
-</code></pre></li>
-</ol>
+<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>sring 数据类型是最基本的数据类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">redis 127.0.0.1:6379&gt; SET name &quot;root&quot;</div><div class="line">OK</div><div class="line">redis 127.0.0.1:6379&gt; GET name</div><div class="line">&quot;root&quot;</div></pre></td></tr></table></figure>
+<p>一般使用<strong>set</strong> 和<strong>get </strong>命令对其进行操作</p>
+<h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><p>hash 数据类型一般用于存储对象，它的Key 可能是一个人的姓名， 而value则是一个人的基本信息，包括性别，年龄，电话号码等等</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">127.0.0.1:6379&gt;  HMSET student sex &quot;male&quot; age 10 phone 123456</div><div class="line">OK</div><div class="line">127.0.0.1:6379&gt;  HGETALL student</div><div class="line">1) &quot;sex&quot;</div><div class="line">2) &quot;male&quot;</div><div class="line">3) &quot;age&quot;</div><div class="line">4) &quot;10&quot;</div><div class="line">5) &quot;phone&quot;</div><div class="line">6) &quot;123456&quot;</div></pre></td></tr></table></figure>
+<p>我们可以通过使用<strong>HMSET</strong> 一次性把所有的属性添加至key所对应的哈希表中<br>然后通过<strong>HGETALL</strong>一次性把所有的属性从哈希表中取出<br>也可以单独使用<br><strong>HGET KEY FIELD</strong> 单独获取某个哈希表的某一项<br><strong>HSET KEY FIELD VALUE </strong> 单独设置某个哈希表的某一项</p>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>list 数据类型是一个简单的列表，按照用户插入的顺序进行排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">redis 127.0.0.1:6379&gt; LPUSH students “bob”</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; LPUSH students “alice”</div><div class="line">(integer) 2</div><div class="line">redis 127.0.0.1:6379&gt; LPUSH students “jack”</div><div class="line">(integer) 3</div><div class="line">redis 127.0.0.1:6379&gt; LRANGE students 0 10</div><div class="line"></div><div class="line">1) &quot;jack&quot;</div><div class="line">2) &quot;alice&quot;</div><div class="line">3) &quot;bob&quot;</div></pre></td></tr></table></figure>
+<p>在上述例子中，我们使用<strong>LPUSH KEY VALUE</strong> 将新值插入到列表头部，然后使用<strong>LRANG KEY START STOP</strong> 来输出一定下标范围内的所有值</p>
+<p>我们还可以使用<br><strong>LPOP key</strong>  移出并获取列表的第一个元素<br><strong>RPUSHX key value</strong>  在列表的末尾添加一个新的元素<br><strong>RPOP key</strong>  移除并获取列表最后一个元素</p>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>set是string类型的无序集合，既然是集合，那么其中的元素则必然是唯一的，不能出现重合的元素，如果添加了重复的元素进去，不会报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">redis 127.0.0.1:6379&gt; SADD student 1</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; SADD student “new”</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; SMEMBERS student</div><div class="line"></div><div class="line">1) &quot;new&quot;</div><div class="line">2) &quot;1&quot;</div></pre></td></tr></table></figure>
+<p>我们使用<strong>SADD key member</strong> 添加一个元素<br>并使用<strong>SMEMBERS key</strong>　来获取所有集合中的元素</p>
+<h3 id="sorted-set"><a href="#sorted-set" class="headerlink" title="sorted set"></a>sorted set</h3><p>sorted set 有序集合和普通的集合一样，都是不允许有重复的元素存在，但是不一样的是，有序集合中的元素都会关联一个数值，redis通过该值为集合中的元素进行排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">redis 127.0.0.1:6379&gt; ZADD student 5 bob</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; ZADD student 2 alice</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; ZADD student 7 jack</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; ZRANGE runoobkey 0 10 WITHSCORES</div><div class="line"></div><div class="line">1) &quot;alice&quot;</div><div class="line">2) &quot;2&quot;</div><div class="line">3) &quot;bob&quot;</div><div class="line">4) &quot;5&quot;</div><div class="line">5) &quot;jack&quot;</div><div class="line">6) &quot;7&quot;</div></pre></td></tr></table></figure>
+<p>以上例子中，我们通过<strong>ZADD key score member </strong>来为一个有序集合添加一个元素并绑定一个分数，并通过<strong>ZRANGE key start stop WITHSCORES</strong> 来通过下边范围获取相应的元素</p>
 
       
     </div>
@@ -487,7 +488,7 @@ pip list
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
           
         </div>
       
@@ -500,8 +501,8 @@ pip list
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/01/17/Python图片尺寸缩放的4种方式/" rel="next" title="Python图片尺寸缩放的4种方式">
-                <i class="fa fa-chevron-left"></i> Python图片尺寸缩放的4种方式
+              <a href="/2016/10/20/SpringBoot学习1之快速入门/" rel="next" title="SpringBoot学习1之快速入门">
+                <i class="fa fa-chevron-left"></i> SpringBoot学习1之快速入门
               </a>
             
           </div>
@@ -509,6 +510,10 @@ pip list
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/12/maven仓库加载问题/" rel="prev" title="maven仓库加载问题">
+                maven仓库加载问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -669,7 +674,7 @@ pip list
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows下pip安装以及virtualenv环境搭建"><span class="nav-number">1.</span> <span class="nav-text">Windows下pip安装以及virtualenv环境搭建</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis学习1之快速入门"><span class="nav-number">1.</span> <span class="nav-text">Redis学习1之快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis简介"><span class="nav-number">1.1.</span> <span class="nav-text">Redis简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis安装"><span class="nav-number">1.2.</span> <span class="nav-text">Redis安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-配置"><span class="nav-number">1.3.</span> <span class="nav-text">Redis 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-数据类型"><span class="nav-number">1.4.</span> <span class="nav-text">Redis 数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#string"><span class="nav-number">1.4.1.</span> <span class="nav-text">string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash"><span class="nav-number">1.4.2.</span> <span class="nav-text">hash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list"><span class="nav-number">1.4.3.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">1.4.4.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sorted-set"><span class="nav-number">1.4.5.</span> <span class="nav-text">sorted set</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -839,9 +844,9 @@ pip list
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lnplayer.github.io/2015/01/16/Windows下pip安装以及virtualenv环境搭建/';
-          this.page.identifier = '2015/01/16/Windows下pip安装以及virtualenv环境搭建/';
-          this.page.title = 'Windows下pip安装以及virtualenv环境搭建';
+          this.page.url = 'http://lnplayer.github.io/2016/09/08/Redis学习1之快速入门/';
+          this.page.identifier = '2016/09/08/Redis学习1之快速入门/';
+          this.page.title = 'Redis学习1之快速入门';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lnplayer.disqus.com.disqus.com/embed.js';
