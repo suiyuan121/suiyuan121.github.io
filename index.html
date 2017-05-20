@@ -403,7 +403,7 @@
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/21/hexo搭建个人博客/#more" rel="contents">
+            <a class="btn" href="/2017/04/21/hexo搭建个人博客/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -560,7 +560,7 @@
           <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/20/hello-world/#more" rel="contents">
+            <a class="btn" href="/2017/04/20/hello-world/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -759,23 +759,51 @@
 </tr>
 </tbody>
 </table>
-<h2 id="Java-进阶知识"><a href="#Java-进阶知识" class="headerlink" title="Java 进阶知识"></a>Java 进阶知识</h2><h2 id="Java-框架"><a href="#Java-框架" class="headerlink" title="Java 框架"></a>Java 框架</h2><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h4 id="产生死锁的条件？"><a href="#产生死锁的条件？" class="headerlink" title="产生死锁的条件？"></a>产生死锁的条件？</h4><ol>
+<h4 id="String，Stringbuffer，StringBuilder的区别？"><a href="#String，Stringbuffer，StringBuilder的区别？" class="headerlink" title="String，Stringbuffer，StringBuilder的区别？"></a>String，Stringbuffer，StringBuilder的区别？</h4><p>String：字符串常量<br>StringBuffer：字符串变量, 线程安全的<br>StringBuilder：字符串变量, 线程非安全的</p>
+<p>三者在执行速度方面的比较：StringBuilder &gt;  StringBuffer  &gt;  String</p>
+<p>对于三者使用的总结： </p>
+<ol>
+<li>如果要操作少量的数据用 = String</li>
+<li>单线程操作字符串缓冲区 下操作大量数据 = StringBuilder</li>
+<li>多线程操作字符串缓冲区 下操作大量数据 = StringBuffer</li>
+</ol>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h4 id="类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，他们的执行顺序"><a href="#类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，他们的执行顺序" class="headerlink" title="类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，他们的执行顺序"></a>类的实例化顺序，比如父类静态数据，构造函数，字段，子类静态数据，构造函数，字段，他们的执行顺序</h4><ol>
+<li>父类静态成员和静态初始化块 ，按在代码中出现的顺序依次执行</li>
+<li>子类静态成员和静态初始化块 ，按在代码中出现的顺序依次执行</li>
+<li>父类实例成员和实例初始化块 ，按在代码中出现的顺序依次执行</li>
+<li>父类构造方法</li>
+<li>子类实例成员和实例初始化块 ，按在代码中出现的顺序依次执行</li>
+<li>子类构造方法<br>结论：对象初始化的顺序，先静态方法，再构造方法，每个又是先基类后子类。</li>
+</ol>
+<h2 id="Java-框架"><a href="#Java-框架" class="headerlink" title="Java 框架"></a>Java 框架</h2><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h4 id="产生死锁的条件？"><a href="#产生死锁的条件？" class="headerlink" title="产生死锁的条件？"></a>产生死锁的条件？</h4><ol>
 <li>互斥条件：一个资源同时只能由一个进程占有，不能有两个或者两个以上的占有。</li>
 <li>不可抢占条件：在一个进程所获取的资源未使用完毕之前，资源申请者不能强行从资源占有者手中抢占资源。</li>
 <li>占有申请条件：进程已经占有了一个资源，但是又需要申请新的资源，但是新申请的资源已经被别的进程占有了，此时，当前进程就会阻塞，但是在获取申请的资源之前，它还会一直占有已占有的那个资源</li>
 <li>循环等待条件：存在一个循环等待序列，p1等待p2，p2等待p3， p3等待p1，形成一个进程循环等待。</li>
 </ol>
-<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h4 id="数据库事务ACID"><a href="#数据库事务ACID" class="headerlink" title="数据库事务ACID?"></a>数据库事务ACID?</h4><ol>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h4 id="http1-0和http1-1有什么区别"><a href="#http1-0和http1-1有什么区别" class="headerlink" title="http1.0和http1.1有什么区别"></a>http1.0和http1.1有什么区别</h4><ol>
+<li>HTTP/1.0协议使用非持久连接,即在非持久连接下,一个tcp连接只传输一个Web对象；</li>
+<li>HTTP/1.1默认使用持久连接(然而,HTTP/1.1协议的客户机和服务器可以配置成使用非持久连接)。在持久连接下,不必为每个Web对象的传送建立一个新的连接,一个连接中可以传输多个对象.</li>
+</ol>
+<p>一个WEB站点每天可能要接收到上百万的用户请求，为了提高系统的效率，HTTP 1.0规定浏览器与服务器只保持短暂的连接，浏览器的每次请求都需要与服务器建立一个TCP连接，服务器完成请求处理后立即断开TCP连接，服务器不跟踪每个客户也不记录过去的请求。但是，这也造成了一些性能上的缺陷，例如，一个包含有许多图像的网页文件中并没有包含真正的图像数据内容，而只是指明了这些图像的URL地址，当WEB浏览器访问这个网页文件时，浏览器首先要发出针对该网页文件的请求，当浏览器解析WEB服务器返回的该网页文档中的HTML内容时，发现其中的<img>图像标签后，浏览器将根据<img>标签中的src属性所指定的URL地址再次向服务器发出下载图像数据的请求。<br>显然，访问一个包含有许多图像的网页文件的整个过程包含了多次请求和响应，每次请求和响应都需要建立一个单独的连接，每次连接只是传输一个文档和图像，上一次和下一次请求完全分离。即使图像文件都很小，但是客户端和服务器端每次建立和关闭连接却是一个相对比较费时的过程，并且会严重影响客户机和服务器的性能。当一个网页文件中包含 Applet，JavaScript文件，CSS文件等内容时，也会出现类似上述的情况。<br>为了克服HTTP 1.0的这个缺陷，HTTP 1.1支持持久连接，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟。一个包含有许多图像的网页文件的多个请求和应答可以在一个连接中传输，但每个单独的网页文件的请求和应答仍然需要使用各自的连接。HTTP 1.1还允许客户端不用等待上一次请求结果返回，就可以发出下一次请求，但服务器端必须按照接收到客户端请求的先后顺序依次回送响应结果，以保证客户端能够区分出每次请求的响应内容，这样也显著地减少了整个下载过程所需要的时间。基于HTTP 1.1协议的客户机与服务器的信息交换过程。</p>
+<h4 id="TCP三次握手和四次挥手的流程"><a href="#TCP三次握手和四次挥手的流程" class="headerlink" title="TCP三次握手和四次挥手的流程"></a>TCP三次握手和四次挥手的流程</h4><p><img src="/img/后台研发知识点总结/tcp1.png" alt=""></p>
+<p><img src="/img/后台研发知识点总结/tcp2.png" alt=""></p>
+<h4 id="为什么建立连接要进行3次握手-而断开连接要进行4次"><a href="#为什么建立连接要进行3次握手-而断开连接要进行4次" class="headerlink" title="为什么建立连接要进行3次握手,而断开连接要进行4次"></a>为什么建立连接要进行3次握手,而断开连接要进行4次</h4><p>TCP建立连接要进行3次握手,而断开连接要进行4次,这是由于TCP的半关闭造成的,因为TCP连接是全双工的(即数据可在两个方向上同时传递)所以进行关闭时每个方向上都要单独进行关闭,这个单方向的关闭就叫半关闭.<br>关闭的方法是一方完成它的数据传输后,就发送一个FIN来向另一方通告将要终止这个方向的连接.当一端收到一个FIN,它必须通知应用层TCP连接已终止了这个方向的数据传送,发送FIN通常是应用层进行关闭的结果.</p>
+<h4 id="为什么不能两次握手进行连接？"><a href="#为什么不能两次握手进行连接？" class="headerlink" title="为什么不能两次握手进行连接？"></a>为什么不能两次握手进行连接？</h4><p>现在把三次握手改成仅需要两次握手，死锁是可能发生的。作为例子，考虑计算机S和C之间的通信，假定C给S发送一个连接请求分组，S收到了这个分组，并发送了确认应答分组。按照两次握手的协定，S认为连接已经成功地建立了，可以开始发送数据分组。可是，C在S的应答分组在传输中被丢失的情况下，将不知道S是否已准备好，不知道S建立什么样的序列号，C甚至怀疑S是否收到自己的连接请求分组。在这种情况下，C认为连接还未建立成功，将忽略S发来的任何数据分组，只等待连接确认应答分组。而S在发出的分组超时后，重复发送同样的分组。这样就形成了死锁。</p>
+<h4 id="说说你知道的几种HTTP响应码"><a href="#说说你知道的几种HTTP响应码" class="headerlink" title="说说你知道的几种HTTP响应码"></a>说说你知道的几种HTTP响应码</h4><p>1XX Informational（信息性状态码）接收的请求正在处理<br>2XX Success（成功状态码） 请求正常处理完毕<br>3XX Redirection（重定向状态码） 需要进行附加操作以完成请求<br>4XX Client Error（客户端错误状态码）服务器无法处理请求<br>5XX Server Error（服务器错误状态码）服务器处理请求出错</p>
+<p>200：请求被正常处理<br>204：请求被受理但没有资源可以返回<br>206：客户端只是请求资源的一部分，服务器只对请求的部分资源执行GET方法，相应报文中通过Content-Range指定范围的资源。<br>301：永久性重定向<br>302：临时重定向<br>303：与302状态码有相似功能，只是它希望客户端在请求一个URI的时候，能通过GET方法重定向到另一个URI上<br>304：发送附带条件的请求时，条件不满足时返回，与重定向无关<br>307：临时重定向，与302类似，只是强制要求使用POST方法<br>400：请求报文语法有误，服务器无法识别<br>401：请求需要认证<br>403：请求的对应资源禁止被访问<br>404：服务器无法找到对应资源<br>500：服务器内部错误<br>503：服务器正忙</p>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h4 id="数据库事务ACID"><a href="#数据库事务ACID" class="headerlink" title="数据库事务ACID?"></a>数据库事务ACID?</h4><ol>
 <li>A: 原子性：指事务的所有操作要么全部成功，要么全部失败回滚。</li>
 <li>C: 一致性：指事务必须使得数据库从一个一致性状态变换到另一个一致性状态，举个例子，银行转账，无论是用户a转钱给用户b，还是用户b转钱给用户a，两个人的总钱数不能发生变化。</li>
 <li>I: 隔离性：指当多个用户访问数据库的时候，数据库为每一个用户开启的事务不能被其他事务干扰，多个并发事务之间要相互隔离。</li>
 <li>D：持久性：指当事务完成之后，该事务对数据库所作的更改便持久化的保存在数据库中，并不会回滚。</li>
 </ol>
 <h4 id="数据库脏读，幻读，不可重复读都是什么？"><a href="#数据库脏读，幻读，不可重复读都是什么？" class="headerlink" title="数据库脏读，幻读，不可重复读都是什么？"></a>数据库脏读，幻读，不可重复读都是什么？</h4><ol>
-<li>脏读(<strong>多次写中间被读</strong>)<br>　　脏读是指在一个事务处理过程里读取了另一个未提交的事务中的数据。<br>　　当一个事务正在多次修改某个数据，而在这个事务中这多次的修改都还未提交，这时一个并发的事务来访问该数据，就会造成两个事务得到的数据不一致。</li>
-<li>不可重复读(<strong>多次读中间被写</strong>)<br>　　不可重复读是指在对于数据库中的某个数据，一个事务范围内多次查询却返回了不同的数据值，这是由于在查询间隔，被另一个事务修改并提交了。
-　　</li>
-<li>幻读(<strong>一批数据整体</strong>)<br>　　幻读是事务非独立执行时发生的一种现象。例如事务T1对一个表中所有的行的某个数据项做了从“1”修改为“2”的操作，这时事务T2又对这个表中插入了一行数据项，而这个数据项的数值还是为“1”并且提交给数据库。而操作事务T1的用户如果再查看刚刚修改的数据，会发现还有一行没有修改，其实这行是从事务T2中添加的，就好像产生幻觉一样，这就是发生了幻读。<br>　　幻读和不可重复读都是读取了另一条已经提交的事务（这点就脏读不同），所不同的是不可重复读查询的都是同一个数据项，而幻读针对的是一批数据整体（比如数据的个数）。</li>
+<li>脏读(<strong>多次写中间被读</strong>)<br> 脏读是指在一个事务处理过程里读取了另一个未提交的事务中的数据。<br> 　　当一个事务正在多次修改某个数据，而在这个事务中这多次的修改都还未提交，这时一个并发的事务来访问该数据，就会造成两个事务得到的数据不一致。</li>
+<li><p>不可重复读(<strong>多次读中间被写</strong>)<br> 不可重复读是指在对于数据库中的某个数据，一个事务范围内多次查询却返回了不同的数据值，这是由于在查询间隔，被另一个事务修改并提交了。</p>
+</li>
+<li><p>幻读(<strong>一批数据整体</strong>)<br> 幻读是事务非独立执行时发生的一种现象。例如事务T1对一个表中所有的行的某个数据项做了从“1”修改为“2”的操作，这时事务T2又对这个表中插入了一行数据项，而这个数据项的数值还是为“1”并且提交给数据库。而操作事务T1的用户如果再查看刚刚修改的数据，会发现还有一行没有修改，其实这行是从事务T2中添加的，就好像产生幻觉一样，这就是发生了幻读。<br> 　　幻读和不可重复读都是读取了另一条已经提交的事务（这点就脏读不同），所不同的是不可重复读查询的都是同一个数据项，而幻读针对的是一批数据整体（比如数据的个数）。</p>
+</li>
 </ol>
 <h4 id="MySQL数据库隔离级别有哪几种"><a href="#MySQL数据库隔离级别有哪几种" class="headerlink" title="MySQL数据库隔离级别有哪几种"></a>MySQL数据库隔离级别有哪几种</h4><ol>
 <li>Serializable (串行化)：可避免脏读、不可重复读、幻读的发生。</li>
@@ -797,8 +825,19 @@
 <li>一个表中可以有多个唯一性索引，但只能有一个主键；</li>
 <li>主键列不允许空值，而唯一性索引列允许空值。</li>
 </ol>
+<h2 id="Redis-amp-缓存相关"><a href="#Redis-amp-缓存相关" class="headerlink" title="Redis&amp;缓存相关"></a>Redis&amp;缓存相关</h2><h4 id="Redis的数据淘汰策略"><a href="#Redis的数据淘汰策略" class="headerlink" title="Redis的数据淘汰策略"></a>Redis的数据淘汰策略</h4><p>在 Redis 中，允许用户设置最大使用内存大小 server.maxmemory, redis 内存数据集大小上升到一定大小的时候，就会施行数据淘汰策略。redis 提供 6种数据淘汰策略：</p>
+<ol>
+<li>volatile-lru：从已设置过期时间的数据集（server.db[i].expires）中挑选最近最少使用的数据淘汰<br>2.volatile-ttl：从已设置过期时间的数据集（server.db[i].expires）中挑选将要过期的数据淘汰<br>3.volatile-random：从已设置过期时间的数据集（server.db[i].expires）中任意选择数据淘汰<br>4.allkeys-lru：从数据集（server.db[i].dict）中挑选最近最少使用的数据淘汰<br>5.allkeys-random：从数据集（server.db[i].dict）中任意选择数据淘汰<br>6.no-enviction（驱逐）：禁止驱逐数据<br>redis 确定驱逐某个键值对后，会删除这个数据并，并将这个数据变更消息发布到本地（AOF 持久化）和从机（主从连接）。</li>
+</ol>
 <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h4 id="如何查找一个进程"><a href="#如何查找一个进程" class="headerlink" title="如何查找一个进程"></a>如何查找一个进程</h4><p>使用<strong>ps</strong>命令可以查看进程状态<br><strong>ps -ef</strong>可以查看所有进程，配合<strong>grep</strong>命令可以进行筛选，如查看tomcat进程的命令: <strong>ps -ef | grep tomcat </strong></p>
-<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h2 id="常见算法题"><a href="#常见算法题" class="headerlink" title="常见算法题"></a>常见算法题</h2>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h4 id="在装饰器模式和代理模式之间，你如何抉择"><a href="#在装饰器模式和代理模式之间，你如何抉择" class="headerlink" title="在装饰器模式和代理模式之间，你如何抉择"></a>在装饰器模式和代理模式之间，你如何抉择</h4><p>装饰器模式关注于在一个对象上动态的添加方法，然而代理模式关注于控制对对象的访问。换句话 说，用代理模式，代理类（proxy class）可以对它的客户隐藏一个对象的具体信息。因此，当使用代理模式的时候，我们常常在一个代理类中创建一个对象的实例。并且，当我们使用装饰器模 式的时候，我们通常的做法是将原始对象作为一个参数传给装饰者的构造器。</p>
+<h2 id="常见算法题"><a href="#常见算法题" class="headerlink" title="常见算法题"></a>常见算法题</h2><h2 id="工程实践"><a href="#工程实践" class="headerlink" title="工程实践"></a>工程实践</h2><h4 id="后台系统怎么防止请求重复提交？"><a href="#后台系统怎么防止请求重复提交？" class="headerlink" title="后台系统怎么防止请求重复提交？"></a>后台系统怎么防止请求重复提交？</h4><p>首先我们在进入表单填写页面时，在服务器端生成一个唯一的随机标识号，专业术语称为Token(令牌)，同时在当前用户的Session域中保存这个Token。然后将Token发送到客户端的Form表单中，在Form表单中使用隐藏域来存储这个Token，表单提交的时候连同这个Token一起提交到服务器端，然后在服务器端判断客户端提交上来的Token与服务器端生成的Token是否一致，如果不一致，那就是重复提交了，此时服务器端就可以不处理重复提交的表单。如果相同则处理表单提交，并清除当前用户的Session域中存储的标识号。<br>在下列情况下，服务器程序将拒绝处理用户提交的表单请求：</p>
+<ol>
+<li>存储Session域中的Token(令牌)与表单提交的Token(令牌)不同。</li>
+<li>当前用户的Session中不存在Token(令牌)。</li>
+<li>用户提交的表单数据中没有Token(令牌)。<br><strong><font color="red">需要注意的是当比对成功后，必须立即将该Session的值设置为空，这样才可保证页面再次POST时表单中的校验串就无法于Session中的空值比对成功。</font></strong></li>
+</ol>
+
           
         
       
@@ -1123,7 +1162,7 @@
 <p>本文在这里介绍了SpringBoot开发过程中经常使用到的Logback工具的简单使用</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/25/SpringBoot学习4之Logback使用/#more" rel="contents">
+            <a class="btn" href="/2016/11/25/SpringBoot学习4之Logback使用/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1280,7 +1319,7 @@
           <h1 id="SpringBoot学习3之数据库集成mybatis"><a href="#SpringBoot学习3之数据库集成mybatis" class="headerlink" title="SpringBoot学习3之数据库集成mybatis"></a>SpringBoot学习3之数据库集成mybatis</h1><p>作为一个Web框架，必然要与数据库打交道，这里介绍了如何将SpringBoot与mybatis进行集成的方法</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/03/SpringBoot学习3之数据库集成mybatis/#more" rel="contents">
+            <a class="btn" href="/2016/11/03/SpringBoot学习3之数据库集成mybatis/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1437,7 +1476,7 @@
           <h1 id="SpringBoot学习2之配置文件"><a href="#SpringBoot学习2之配置文件" class="headerlink" title="SpringBoot学习2之配置文件"></a>SpringBoot学习2之配置文件</h1><p>虽然SpringBoot号称零配置，但是在实际开发过程中，我们常常需要进行一些额外信息的配置，比如数据库连接的一些参数，或者分布式服务的相关配置等等，那么这个时候就有可能用到我们本章的内容。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/10/22/SpringBoot学习2之配置文件/#more" rel="contents">
+            <a class="btn" href="/2016/10/22/SpringBoot学习2之配置文件/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1594,7 +1633,7 @@
           <h1 id="SpringBoot学习1之快速入门"><a href="#SpringBoot学习1之快速入门" class="headerlink" title="SpringBoot学习1之快速入门"></a>SpringBoot学习1之快速入门</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>Java环境<br>一个趁手的IDE(本文使用Eclipse)<br>Maven环境(可以自己安装或者使用IDE内置的maven)</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/10/20/SpringBoot学习1之快速入门/#more" rel="contents">
+            <a class="btn" href="/2016/10/20/SpringBoot学习1之快速入门/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1751,7 +1790,7 @@
           <h1 id="Redis学习1之快速入门"><a href="#Redis学习1之快速入门" class="headerlink" title="Redis学习1之快速入门"></a>Redis学习1之快速入门</h1><h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><p>redis是一个高性能的key-value数据库（可以理解成一个hashmap）</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/09/08/Redis学习1之快速入门/#more" rel="contents">
+            <a class="btn" href="/2016/09/08/Redis学习1之快速入门/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1908,7 +1947,7 @@
           <h1 id="maven仓库加载问题"><a href="#maven仓库加载问题" class="headerlink" title="maven仓库加载问题"></a>maven仓库加载问题</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>maven是当前非常流行的项目管理工具，各大公司几乎都在使用，然而本人在使用maven的过程中总是或多或少遇到一些问题，特此整理并记录下来，方便以后再次遇到这些问题时能够及时解决。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/03/12/maven仓库加载问题/#more" rel="contents">
+            <a class="btn" href="/2016/03/12/maven仓库加载问题/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
