@@ -1,0 +1,952 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="ZSp04rbx33DQlnfdEYHTQoJf3MV6Cqdccz_PNo0SA8o" />
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="S2iQxs26pA" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/uploads/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="后台研发知识点总结Java 基础知识Java 数据类型分为？基本数据类型：int ,float, boolean, char, byte, double, long, short引用数据类型：类，数组，接口 基本数据类型可以在栈中直接分配内存引用数据类型则是数据的引用在栈中，其对象在堆中 八种基本数据类型？   类型 字节     byte 1   short 2   int 4   long 8">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后台研发知识点总结">
+<meta property="og:url" content="http://lnplayer.github.io/2017/04/08/后台研发知识点总结/index.html">
+<meta property="og:site_name" content="lnplayer's Blog">
+<meta property="og:description" content="后台研发知识点总结Java 基础知识Java 数据类型分为？基本数据类型：int ,float, boolean, char, byte, double, long, short引用数据类型：类，数组，接口 基本数据类型可以在栈中直接分配内存引用数据类型则是数据的引用在栈中，其对象在堆中 八种基本数据类型？   类型 字节     byte 1   short 2   int 4   long 8">
+<meta property="og:updated_time" content="2017-05-09T01:52:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="后台研发知识点总结">
+<meta name="twitter:description" content="后台研发知识点总结Java 基础知识Java 数据类型分为？基本数据类型：int ,float, boolean, char, byte, double, long, short引用数据类型：类，数组，接口 基本数据类型可以在栈中直接分配内存引用数据类型则是数据的引用在栈中，其对象在堆中 八种基本数据类型？   类型 字节     byte 1   short 2   int 4   long 8">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lnplayer.github.io/2017/04/08/后台研发知识点总结/"/>
+
+
+
+
+
+  <title> 后台研发知识点总结 | lnplayer's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?1d7e73af9c19d91f6854874861aec503";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lnplayer's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">学习笔记</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lnplayer.github.io/2017/04/08/后台研发知识点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Liu Ning">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lnplayer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                后台研发知识点总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-08T21:21:44+08:00">
+                2017-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/08/后台研发知识点总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/04/08/后台研发知识点总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="后台研发知识点总结"><a href="#后台研发知识点总结" class="headerlink" title="后台研发知识点总结"></a>后台研发知识点总结</h1><h2 id="Java-基础知识"><a href="#Java-基础知识" class="headerlink" title="Java 基础知识"></a>Java 基础知识</h2><h4 id="Java-数据类型分为？"><a href="#Java-数据类型分为？" class="headerlink" title="Java 数据类型分为？"></a>Java 数据类型分为？</h4><p>基本数据类型：int ,float, boolean, char, byte, double, long, short<br>引用数据类型：类，数组，接口</p>
+<p>基本数据类型可以在栈中直接分配内存<br>引用数据类型则是数据的引用在栈中，其对象在堆中</p>
+<h4 id="八种基本数据类型？"><a href="#八种基本数据类型？" class="headerlink" title="八种基本数据类型？"></a>八种基本数据类型？</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">字节</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">byte</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">short</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">int</td>
+<td style="text-align:left">4</td>
+</tr>
+<tr>
+<td style="text-align:left">long</td>
+<td style="text-align:left">8</td>
+</tr>
+<tr>
+<td style="text-align:left">float</td>
+<td style="text-align:left">4</td>
+</tr>
+<tr>
+<td style="text-align:left">double</td>
+<td style="text-align:left">8</td>
+</tr>
+<tr>
+<td style="text-align:left">char</td>
+<td style="text-align:left">2</td>
+</tr>
+<tr>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Java-进阶知识"><a href="#Java-进阶知识" class="headerlink" title="Java 进阶知识"></a>Java 进阶知识</h2><h2 id="Java-框架"><a href="#Java-框架" class="headerlink" title="Java 框架"></a>Java 框架</h2><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h4 id="产生死锁的条件？"><a href="#产生死锁的条件？" class="headerlink" title="产生死锁的条件？"></a>产生死锁的条件？</h4><ol>
+<li>互斥条件：一个资源同时只能由一个进程占有，不能有两个或者两个以上的占有。</li>
+<li>不可抢占条件：在一个进程所获取的资源未使用完毕之前，资源申请者不能强行从资源占有者手中抢占资源。</li>
+<li>占有申请条件：进程已经占有了一个资源，但是又需要申请新的资源，但是新申请的资源已经被别的进程占有了，此时，当前进程就会阻塞，但是在获取申请的资源之前，它还会一直占有已占有的那个资源</li>
+<li>循环等待条件：存在一个循环等待序列，p1等待p2，p2等待p3， p3等待p1，形成一个进程循环等待。</li>
+</ol>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h4 id="数据库事务ACID"><a href="#数据库事务ACID" class="headerlink" title="数据库事务ACID?"></a>数据库事务ACID?</h4><ol>
+<li>A: 原子性：指事务的所有操作要么全部成功，要么全部失败回滚。</li>
+<li>C: 一致性：指事务必须使得数据库从一个一致性状态变换到另一个一致性状态，举个例子，银行转账，无论是用户a转钱给用户b，还是用户b转钱给用户a，两个人的总钱数不能发生变化。</li>
+<li>I: 隔离性：指当多个用户访问数据库的时候，数据库为每一个用户开启的事务不能被其他事务干扰，多个并发事务之间要相互隔离。</li>
+<li>D：持久性：指当事务完成之后，该事务对数据库所作的更改便持久化的保存在数据库中，并不会回滚。</li>
+</ol>
+<h4 id="数据库脏读，幻读，不可重复读都是什么？"><a href="#数据库脏读，幻读，不可重复读都是什么？" class="headerlink" title="数据库脏读，幻读，不可重复读都是什么？"></a>数据库脏读，幻读，不可重复读都是什么？</h4><ol>
+<li>脏读(<strong>多次写中间被读</strong>)<br>　　脏读是指在一个事务处理过程里读取了另一个未提交的事务中的数据。<br>　　当一个事务正在多次修改某个数据，而在这个事务中这多次的修改都还未提交，这时一个并发的事务来访问该数据，就会造成两个事务得到的数据不一致。</li>
+<li>不可重复读(<strong>多次读中间被写</strong>)<br>　　不可重复读是指在对于数据库中的某个数据，一个事务范围内多次查询却返回了不同的数据值，这是由于在查询间隔，被另一个事务修改并提交了。
+　　</li>
+<li>幻读(<strong>一批数据整体</strong>)<br>　　幻读是事务非独立执行时发生的一种现象。例如事务T1对一个表中所有的行的某个数据项做了从“1”修改为“2”的操作，这时事务T2又对这个表中插入了一行数据项，而这个数据项的数值还是为“1”并且提交给数据库。而操作事务T1的用户如果再查看刚刚修改的数据，会发现还有一行没有修改，其实这行是从事务T2中添加的，就好像产生幻觉一样，这就是发生了幻读。<br>　　幻读和不可重复读都是读取了另一条已经提交的事务（这点就脏读不同），所不同的是不可重复读查询的都是同一个数据项，而幻读针对的是一批数据整体（比如数据的个数）。</li>
+</ol>
+<h4 id="MySQL数据库隔离级别有哪几种"><a href="#MySQL数据库隔离级别有哪几种" class="headerlink" title="MySQL数据库隔离级别有哪几种"></a>MySQL数据库隔离级别有哪几种</h4><ol>
+<li>Serializable (串行化)：可避免脏读、不可重复读、幻读的发生。</li>
+<li>Repeatable read (可重复读)：可避免脏读、不可重复读的发生。</li>
+<li>Read committed (读已提交)：可避免脏读的发生。</li>
+<li>Read uncommitted (读未提交)：最低级别，任何情况都无法保证。</li>
+</ol>
+<p><strong><font color="red">一般数据库默认的隔离级别是Read committed (读已提交)， 但是MySQL是个例外，默认隔离级别是Repeatable read (可重复读)</font></strong></p>
+<h4 id="MySQL四种隔离级别是怎么实现的？"><a href="#MySQL四种隔离级别是怎么实现的？" class="headerlink" title="MySQL四种隔离级别是怎么实现的？"></a>MySQL四种隔离级别是怎么实现的？</h4><ol>
+<li>Read uncommitted(未授权读取、读未提交)：<br>如果一个事务已经开始写数据，则另外一个事务则不允许同时进行写操作，但允许其他事务读此行数据。该隔离级别可以通过“排他写锁”实现。<br>避免了更新丢失，却可能出现脏读。也就是说事务B读取到了事务A未提交的数据。</li>
+<li>Read committed（授权读取、读提交）：<br>读取数据的事务允许其他事务继续访问该行数据，但是未提交的写事务将会禁止其他事务访问该行。<br>该隔离级别避免了脏读，但是却可能出现不可重复读。事务A事先读取了数据，事务B紧接了更新了数据，并提交了事务，而事务A再次读取该数据时，数据已经发生了改变。</li>
+<li>Repeatable read（可重复读取）：<br>读取数据的事务将会禁止写事务（但允许读事务），写事务则禁止任何其他事务。<br>避免了不可重复读取和脏读，但是有时可能出现幻读。这可以通过“共享读锁”和“排他写锁”实现。</li>
+<li>Serializable（序列化）：<br>提供严格的事务隔离。它要求事务序列化执行，事务只能一个接着一个地执行，但不能并发执行。如果仅仅通过“行级锁”是无法实现事务序列化的，必须通过其他机制保证新插入的数据不会被刚执行查询操作的事务访问到。<br>序列化是最高的事务隔离级别，同时代价也花费最高，性能很低，一般很少使用，在该级别下，事务顺序执行，不仅可以避免脏读、不可重复读，还避免了幻像读。</li>
+</ol>
+<h4 id="什么情况下使用缓存"><a href="#什么情况下使用缓存" class="headerlink" title="什么情况下使用缓存"></a>什么情况下使用缓存</h4><p>对于内容变换缓慢或者不太重要，但又需要频繁查询数据库或从源头计算的中间结果或最终结果，我们可以采取使用缓存的方法，将其写到缓存中，每次使用时，只要缓存有效，就可直接使用缓存，不用再到数据库中取或重新计算</p>
+<h4 id="数据库左外连接和右外连接有什么区别？"><a href="#数据库左外连接和右外连接有什么区别？" class="headerlink" title="数据库左外连接和右外连接有什么区别？"></a>数据库左外连接和右外连接有什么区别？</h4><p>左连接是以左边表中的数据为基准，如果左表中有数据，右表中没有数据，则显示：左表中的数据    右表中的数据(为空)<br>换句话说，左连接的结果集包括left子句中指定的左表的所有行，而不仅仅是连接匹配到的行，<strong>如果左表中的某行在右表中没有匹配行，则在结果集中相关联列有关右表的列均为空值(因为没有匹配行)</strong><br>右连接则正好相反，如果右表的某行在左表中没有匹配行，则左表返回空值</p>
+<h4 id="主键和unique的区别"><a href="#主键和unique的区别" class="headerlink" title="主键和unique的区别"></a>主键和unique的区别</h4><ol>
+<li>主键一定是唯一性索引，唯一性索引并不一定就是主键；</li>
+<li>一个表中可以有多个唯一性索引，但只能有一个主键；</li>
+<li>主键列不允许空值，而唯一性索引列允许空值。</li>
+</ol>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h4 id="如何查找一个进程"><a href="#如何查找一个进程" class="headerlink" title="如何查找一个进程"></a>如何查找一个进程</h4><p>使用<strong>ps</strong>命令可以查看进程状态<br><strong>ps -ef</strong>可以查看所有进程，配合<strong>grep</strong>命令可以进行筛选，如查看tomcat进程的命令: <strong>ps -ef | grep tomcat </strong></p>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h2 id="常见算法题"><a href="#常见算法题" class="headerlink" title="常见算法题"></a>常见算法题</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat-qcode.png" alt="Liu Ning WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/20/hello-world/" rel="next" title="Hello World!">
+                <i class="fa fa-chevron-left"></i> Hello World!
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/01/SpringBoot学习5之自定义注解/" rel="prev" title="SpringBoot学习5之自定义注解">
+                SpringBoot学习5之自定义注解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="Liu Ning" />
+          <p class="site-author-name" itemprop="name">Liu Ning</p>
+           
+              <p class="site-description motion-element" itemprop="description">Welcome !</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lnplayer" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jacksmiththu.github.io" title="JackSmith" target="_blank">JackSmith</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#后台研发知识点总结"><span class="nav-number">1.</span> <span class="nav-text">后台研发知识点总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-基础知识"><span class="nav-number">1.1.</span> <span class="nav-text">Java 基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-数据类型分为？"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">Java 数据类型分为？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八种基本数据类型？"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">八种基本数据类型？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-进阶知识"><span class="nav-number">1.2.</span> <span class="nav-text">Java 进阶知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-框架"><span class="nav-number">1.3.</span> <span class="nav-text">Java 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统"><span class="nav-number">1.4.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#产生死锁的条件？"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">产生死锁的条件？</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机网络"><span class="nav-number">1.5.</span> <span class="nav-text">计算机网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">1.6.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库事务ACID"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">数据库事务ACID?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库脏读，幻读，不可重复读都是什么？"><span class="nav-number">1.6.0.2.</span> <span class="nav-text">数据库脏读，幻读，不可重复读都是什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL数据库隔离级别有哪几种"><span class="nav-number">1.6.0.3.</span> <span class="nav-text">MySQL数据库隔离级别有哪几种</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL四种隔离级别是怎么实现的？"><span class="nav-number">1.6.0.4.</span> <span class="nav-text">MySQL四种隔离级别是怎么实现的？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么情况下使用缓存"><span class="nav-number">1.6.0.5.</span> <span class="nav-text">什么情况下使用缓存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库左外连接和右外连接有什么区别？"><span class="nav-number">1.6.0.6.</span> <span class="nav-text">数据库左外连接和右外连接有什么区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主键和unique的区别"><span class="nav-number">1.6.0.7.</span> <span class="nav-text">主键和unique的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux"><span class="nav-number">1.7.</span> <span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何查找一个进程"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">如何查找一个进程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式"><span class="nav-number">1.8.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见算法题"><span class="nav-number">1.9.</span> <span class="nav-text">常见算法题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Liu Ning</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://lnplayer.disqus.com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://lnplayer.github.io/2017/04/08/后台研发知识点总结/';
+          this.page.identifier = '2017/04/08/后台研发知识点总结/';
+          this.page.title = '后台研发知识点总结';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://lnplayer.disqus.com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
