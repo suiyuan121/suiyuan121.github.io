@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Redis," />
+  <meta name="keywords" content="数据库," />
 
 
 
@@ -94,22 +94,20 @@
 
 
 
-<meta name="description" content="Redis学习1之快速入门Redis简介redis是一个高性能的key-value数据库（可以理解成一个hashmap）">
-<meta name="keywords" content="Redis">
+<meta name="description" content="初识：数据库事务隔离级别学习数据库的时候常常会接触到事务, ACID等概念，那么到底什么是数据库的事务，数据库事务又具有哪些特点，和ACID有怎样的关系，事务的隔离级别又是做什么的呢？ 注：本文参考自&amp;lt;&amp;lt;从Paxos到ZooKeeper-分布式一致性原理和实践&amp;gt;&amp;gt;一书">
+<meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis学习1之快速入门">
-<meta property="og:url" content="http://darylliu.github.io/2016/09/08/Redis学习1之快速入门/index.html">
+<meta property="og:title" content="初识：数据库事务隔离级别">
+<meta property="og:url" content="http://darylliu.github.io/2018/03/22/初识：数据库事务隔离级别/index.html">
 <meta property="og:site_name" content="Daryl's Blog">
-<meta property="og:description" content="Redis学习1之快速入门Redis简介redis是一个高性能的key-value数据库（可以理解成一个hashmap）">
-<meta property="og:image" content="http://darylliu.github.io/img/Redis学习1之快速入门/redis1.png">
-<meta property="og:image" content="http://darylliu.github.io/img/Redis学习1之快速入门/redis2.png">
-<meta property="og:image" content="http://darylliu.github.io/img/Redis学习1之快速入门/redis3.png">
-<meta property="og:image" content="http://darylliu.github.io/img/Redis学习1之快速入门/redis4.png">
-<meta property="og:updated_time" content="2017-05-08T11:50:03.000Z">
+<meta property="og:description" content="初识：数据库事务隔离级别学习数据库的时候常常会接触到事务, ACID等概念，那么到底什么是数据库的事务，数据库事务又具有哪些特点，和ACID有怎样的关系，事务的隔离级别又是做什么的呢？ 注：本文参考自&amp;lt;&amp;lt;从Paxos到ZooKeeper-分布式一致性原理和实践&amp;gt;&amp;gt;一书">
+<meta property="og:image" content="http://darylliu.github.io/img/初识：数据库事务隔离级别/img1.jpg">
+<meta property="og:image" content="http://darylliu.github.io/img/初识：数据库事务隔离级别/img2.jpg">
+<meta property="og:updated_time" content="2019-04-11T17:35:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis学习1之快速入门">
-<meta name="twitter:description" content="Redis学习1之快速入门Redis简介redis是一个高性能的key-value数据库（可以理解成一个hashmap）">
-<meta name="twitter:image" content="http://darylliu.github.io/img/Redis学习1之快速入门/redis1.png">
+<meta name="twitter:title" content="初识：数据库事务隔离级别">
+<meta name="twitter:description" content="初识：数据库事务隔离级别学习数据库的时候常常会接触到事务, ACID等概念，那么到底什么是数据库的事务，数据库事务又具有哪些特点，和ACID有怎样的关系，事务的隔离级别又是做什么的呢？ 注：本文参考自&amp;lt;&amp;lt;从Paxos到ZooKeeper-分布式一致性原理和实践&amp;gt;&amp;gt;一书">
+<meta name="twitter:image" content="http://darylliu.github.io/img/初识：数据库事务隔离级别/img1.jpg">
 
 
 
@@ -146,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://darylliu.github.io/2016/09/08/Redis学习1之快速入门/"/>
+  <link rel="canonical" href="http://darylliu.github.io/2018/03/22/初识：数据库事务隔离级别/"/>
 
 
 
 
 
-  <title> Redis学习1之快速入门 | Daryl's Blog </title>
+  <title> 初识：数据库事务隔离级别 | Daryl's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -300,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://darylliu.github.io/2016/09/08/Redis学习1之快速入门/">
+    <link itemprop="mainEntityOfPage" href="http://darylliu.github.io/2018/03/22/初识：数据库事务隔离级别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Daryl">
@@ -321,7 +319,7 @@
             
             
               
-                Redis学习1之快速入门
+                初识：数据库事务隔离级别
               
             
           </h1>
@@ -336,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-08T19:38:30+08:00">
-                2016-09-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T10:23:29+08:00">
+                2018-03-22
               </time>
             
 
@@ -359,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/专题/" itemprop="url" rel="index">
-                    <span itemprop="name">专题</span>
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
                   </a>
                 </span>
 
@@ -377,9 +375,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/09/08/Redis学习1之快速入门/#comments" itemprop="discussionUrl">
+                <a href="/2018/03/22/初识：数据库事务隔离级别/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2016/09/08/Redis学习1之快速入门/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/03/22/初识：数据库事务隔离级别/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -419,48 +417,38 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-        <h1 id="Redis学习1之快速入门"><a href="#Redis学习1之快速入门" class="headerlink" title="Redis学习1之快速入门"></a>Redis学习1之快速入门</h1><h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><p>redis是一个高性能的key-value数据库（可以理解成一个hashmap）</p>
+        <h1 id="初识：数据库事务隔离级别"><a href="#初识：数据库事务隔离级别" class="headerlink" title="初识：数据库事务隔离级别"></a>初识：数据库事务隔离级别</h1><p>学习数据库的时候常常会接触到事务, ACID等概念，那么到底什么是数据库的事务，数据库事务又具有哪些特点，和ACID有怎样的关系，事务的隔离级别又是做什么的呢？</p>
+<p><em>注：本文参考自&lt;&lt;从Paxos到ZooKeeper-分布式一致性原理和实践&gt;&gt;一书</em></p>
 <a id="more"></a>
-<h2 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h2><p>下载地址：<a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="external">https://github.com/MSOpenTech/redis/releases</a></p>
-<p>将下载好的压缩包(<strong>Redis-x64-3.2.100.zip</strong>)解压到某目录下(<strong>D:\ redis</strong>)</p>
-<p>打开cmd窗口，进入该目录</p>
-<p>运行  <strong>redis-server.exe redis.windows.conf</strong></p>
-<p><strong><font color="red">为了方便起见，也可以将其路径加入到环境变量当中</font></strong></p>
-<p><img src="/img/Redis学习1之快速入门/redis1.png" alt=""></p>
-<p>出现如上图所示，则服务器启动成功。</p>
-<p>当前窗口不要关闭，打开另一个新的窗口，进入该目录</p>
-<p>运行  <strong>redis-cli.exe -h 127.0.0.1 -p 6379</strong></p>
-<p><img src="/img/Redis学习1之快速入门/redis2.png" alt=""></p>
-<p>出现如上图所示，则客户端启动成功。</p>
-<p>下面可以先跑一个例子测试一下<br>存入一个新的键值对，<strong>set key test </strong>(key 是键，test是值)<br>然后再取出， <strong>get key</strong></p>
-<p><img src="/img/Redis学习1之快速入门/redis3.png" alt=""></p>
-<h2 id="Redis-配置"><a href="#Redis-配置" class="headerlink" title="Redis 配置"></a>Redis 配置</h2><p>可以通过输入命令<strong>config get * </strong>获得当前所有配置<br>如果希望能够对某一项配置进行设置的话，可以输入命令<strong> config set key</strong>(key 为配置项的名称)</p>
-<p>例如可以通过<strong>config get bink</strong>获取绑定的ip地址</p>
-<p><img src="/img/Redis学习1之快速入门/redis4.png" alt=""></p>
-<h2 id="Redis-数据类型"><a href="#Redis-数据类型" class="headerlink" title="Redis 数据类型"></a>Redis 数据类型</h2><p>redis 支持五种数据类型</p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>事务是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元，狭义上的事务特指数据库事务。</p>
+<p><em>举个例子来说，张三给李四转了1000元钱，那么在数据库操作时，就要先把张三的账户减去1000元，再把李四的账户加上1000元，两部分操作放在一起，才是一个完整的转账过程，也可称之为事务。</em></p>
+<h2 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h2><p>事务具有一定的特点，也就是我们常常所说的ACID。<br>事务的四个特性</p>
 <ol>
-<li>string   字符串</li>
-<li>hash  哈希</li>
-<li>list   列表</li>
-<li>set   集合</li>
-<li>sorted set   有序集合</li>
+<li><p><strong>原子性(Atomicity)</strong>。事务包含的一系列操作要么全部成功，要么全部失败。一旦有一个操作失败，则将已经执行过的操作进行回滚撤销。<br><em>上述例子中，张三账户减去1000元，李四账户增加1000元两部分操作必须同时成功或失败，不能够出现张三减去了1000，但是李四并没有增加1000的情况。</em></p>
+</li>
+<li><p><strong>一致性(Consistency)</strong>。这里的一致性指的是事务执行前后，数据库都处于一致性状态。<br><em>上述的例子中，无论怎么增加和减少，张三和李四两个人账户里的钱，加起来总数是不会发生改变的。</em></p>
+</li>
+<li><p><strong>持久性(Durability)</strong>。一个事务一旦成功提交，那么它对数据库做出的改变是永久的。</p>
+</li>
+<li><strong>隔离性(Isolation)</strong>。指并发环境中，事务之间是相互隔离，不可打扰的。</li>
 </ol>
-<h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><p>sring 数据类型是最基本的数据类型</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">redis 127.0.0.1:6379&gt; SET name &quot;root&quot;</div><div class="line">OK</div><div class="line">redis 127.0.0.1:6379&gt; GET name</div><div class="line">&quot;root&quot;</div></pre></td></tr></table></figure>
-<p>一般使用<strong>set</strong> 和<strong>get </strong>命令对其进行操作</p>
-<h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><p>hash 数据类型一般用于存储对象，它的Key 可能是一个人的姓名， 而value则是一个人的基本信息，包括性别，年龄，电话号码等等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">127.0.0.1:6379&gt;  HMSET student sex &quot;male&quot; age 10 phone 123456</div><div class="line">OK</div><div class="line">127.0.0.1:6379&gt;  HGETALL student</div><div class="line">1) &quot;sex&quot;</div><div class="line">2) &quot;male&quot;</div><div class="line">3) &quot;age&quot;</div><div class="line">4) &quot;10&quot;</div><div class="line">5) &quot;phone&quot;</div><div class="line">6) &quot;123456&quot;</div></pre></td></tr></table></figure>
-<p>我们可以通过使用<strong>HMSET</strong> 一次性把所有的属性添加至key所对应的哈希表中<br>然后通过<strong>HGETALL</strong>一次性把所有的属性从哈希表中取出<br>也可以单独使用<br><strong>HGET KEY FIELD</strong> 单独获取某个哈希表的某一项<br><strong>HSET KEY FIELD VALUE </strong> 单独设置某个哈希表的某一项</p>
-<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>list 数据类型是一个简单的列表，按照用户插入的顺序进行排序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">redis 127.0.0.1:6379&gt; LPUSH students “bob”</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; LPUSH students “alice”</div><div class="line">(integer) 2</div><div class="line">redis 127.0.0.1:6379&gt; LPUSH students “jack”</div><div class="line">(integer) 3</div><div class="line">redis 127.0.0.1:6379&gt; LRANGE students 0 10</div><div class="line"></div><div class="line">1) &quot;jack&quot;</div><div class="line">2) &quot;alice&quot;</div><div class="line">3) &quot;bob&quot;</div></pre></td></tr></table></figure>
-<p>在上述例子中，我们使用<strong>LPUSH KEY VALUE</strong> 将新值插入到列表头部，然后使用<strong>LRANG KEY START STOP</strong> 来输出一定下标范围内的所有值</p>
-<p>我们还可以使用<br><strong>LPOP key</strong>  移出并获取列表的第一个元素<br><strong>RPUSHX key value</strong>  在列表的末尾添加一个新的元素<br><strong>RPOP key</strong>  移除并获取列表最后一个元素</p>
-<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>set是string类型的无序集合，既然是集合，那么其中的元素则必然是唯一的，不能出现重合的元素，如果添加了重复的元素进去，不会报错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">redis 127.0.0.1:6379&gt; SADD student 1</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; SADD student “new”</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; SMEMBERS student</div><div class="line"></div><div class="line">1) &quot;new&quot;</div><div class="line">2) &quot;1&quot;</div></pre></td></tr></table></figure>
-<p>我们使用<strong>SADD key member</strong> 添加一个元素<br>并使用<strong>SMEMBERS key</strong>　来获取所有集合中的元素</p>
-<h3 id="sorted-set"><a href="#sorted-set" class="headerlink" title="sorted set"></a>sorted set</h3><p>sorted set 有序集合和普通的集合一样，都是不允许有重复的元素存在，但是不一样的是，有序集合中的元素都会关联一个数值，redis通过该值为集合中的元素进行排序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">redis 127.0.0.1:6379&gt; ZADD student 5 bob</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; ZADD student 2 alice</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; ZADD student 7 jack</div><div class="line">(integer) 1</div><div class="line">redis 127.0.0.1:6379&gt; ZRANGE runoobkey 0 10 WITHSCORES</div><div class="line"></div><div class="line">1) &quot;alice&quot;</div><div class="line">2) &quot;2&quot;</div><div class="line">3) &quot;bob&quot;</div><div class="line">4) &quot;5&quot;</div><div class="line">5) &quot;jack&quot;</div><div class="line">6) &quot;7&quot;</div></pre></td></tr></table></figure>
-<p>以上例子中，我们通过<strong>ZADD key score member </strong>来为一个有序集合添加一个元素并绑定一个分数，并通过<strong>ZRANGE key start stop WITHSCORES</strong> 来通过下边范围获取相应的元素</p>
+<p>原子性和一致性，上述都已经进行了解释。持久性，顾名思义，对数据库的改变是永久的。<br>最后一个隔离性比较复杂，因为对事务之间进行隔离，隔离到什么程度比较合适呢？完全隔离的话，影响执行性能，完全不隔离的话，容易造成数据的不一致。<br>要解决这些问题，我们先来了解几个基本概念 ：<strong>脏读，不可重复读，幻读</strong></p>
+<h3 id="脏读：一个事务读取了另一个事务还未提交的数据。"><a href="#脏读：一个事务读取了另一个事务还未提交的数据。" class="headerlink" title="脏读：一个事务读取了另一个事务还未提交的数据。"></a>脏读：一个事务读取了另一个事务还未提交的数据。</h3><p>事务A和事务B同时执行，事务A在整个执行阶段，将某个数据项的值由1加到10，然后进行事务提交。在此过程中。事务B进行一次读取，可能看到(1，2，3，4，5，6，7，8，9，10)中的任意值。</p>
+<h3 id="不可重复读：指在一个事务内读取表中的某一行数据，多次读取结果不同。"><a href="#不可重复读：指在一个事务内读取表中的某一行数据，多次读取结果不同。" class="headerlink" title="不可重复读：指在一个事务内读取表中的某一行数据，多次读取结果不同。"></a>不可重复读：指在一个事务内读取表中的某一行数据，多次读取结果不同。</h3><p>如果不考虑脏读的情况，假设事务A，事务B，事务C同时执行，事务A在整个执行阶段，将某个数据项的值由1加到10，然后进行事务提交。在此过程中，事务B进行读取，只可能读取到1和最终值10。之后事务B并没有结束，事务C再次将该项的值由10加到20，然后进行事务提交。在此过程中，事务B再次进行读取，只可能读取到10和最终值20。因此事务B在执行过程中有可能两次读取结果不同。</p>
+<h3 id="幻读：指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。"><a href="#幻读：指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。" class="headerlink" title="幻读：指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。"></a>幻读：指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。</h3><p>如果不考虑脏读和不可重复读的情况，假设事务A对一个表中的某个数据项设置为1，这种修改涉及到表中的全部数据行，与此同时，事务B向表中插入一条新的数据且该数据项为2，那么此时操作事务A的用户就会发现表中有一条数据的该数据项居然不是1，好像发生了幻觉。</p>
+<p>在上述的例子上，不可重复读和幻读的区别就在于：<br>＋ 不可重复读：在同一事务中，两次读取同一数据，得到内容不同<br>＋ 幻读：同一事务中，用同样的操作读取两次，得到的记录数不相同</p>
+<p>为了解决以上这些问题，保证事务与事务之间的隔离性，数据库中对事务的隔离级别做出了限制，分别在一定程度上对以上问题进行了解决。</p>
+<h2 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h2><p>在标准SQL规范中，定义了四个事务隔离级别。</p>
+<ol>
+<li>读未提交。最低级别，以上问题均无法解决。</li>
+<li>读已提交。可避免脏读情况发生。</li>
+<li>可重复读取。可避免脏读、不可重复读情况的发生。<strong>保证在事务的处理过程中，多次读取同一个数据的时候，其值都和事务开始的时候是一致的</strong>。这也是为何下图中只能读取到1的原因。</li>
+<li>串行化。最严格的事务隔离级别，要求所有事务被串行执行，不能并发执行，可避免脏读、不可重复读、幻读情况的发生。</li>
+</ol>
+<p>下图中是一个很好的例子，分别解释了四种事务隔离级别下，事务B能够读取到的结果。</p>
+<p><img src="/img/初识：数据库事务隔离级别/img1.jpg" alt=""></p>
+<p><strong>总的来说，事务隔离级别越高，越能保证数据的完整性和一致性，但是付出的代价却是并发的性能。</strong></p>
+<p><img src="/img/初识：数据库事务隔离级别/img2.jpg" alt=""></p>
 
       
     </div>
@@ -506,7 +494,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Redis/" rel="tag"># Redis</a>
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
           
         </div>
       
@@ -519,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/20/SpringBoot学习1之快速入门/" rel="next" title="SpringBoot学习1之快速入门">
-                <i class="fa fa-chevron-left"></i> SpringBoot学习1之快速入门
+              <a href="/2018/03/22/从同步阻塞聊到Java三种IO方式/" rel="next" title="从同步阻塞聊到Java三种IO方式">
+                <i class="fa fa-chevron-left"></i> 从同步阻塞聊到Java三种IO方式
               </a>
             
           </div>
@@ -529,8 +517,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/12/maven仓库加载问题/" rel="prev" title="maven仓库加载问题">
-                maven仓库加载问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/01/面试官：请你谈谈Java的类加载过程/" rel="prev" title="面试官：请你谈谈Java的类加载过程">
+                面试官：请你谈谈Java的类加载过程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -704,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis学习1之快速入门"><span class="nav-number">1.</span> <span class="nav-text">Redis学习1之快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis简介"><span class="nav-number">1.1.</span> <span class="nav-text">Redis简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis安装"><span class="nav-number">1.2.</span> <span class="nav-text">Redis安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-配置"><span class="nav-number">1.3.</span> <span class="nav-text">Redis 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-数据类型"><span class="nav-number">1.4.</span> <span class="nav-text">Redis 数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#string"><span class="nav-number">1.4.1.</span> <span class="nav-text">string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash"><span class="nav-number">1.4.2.</span> <span class="nav-text">hash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list"><span class="nav-number">1.4.3.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set"><span class="nav-number">1.4.4.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sorted-set"><span class="nav-number">1.4.5.</span> <span class="nav-text">sorted set</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初识：数据库事务隔离级别"><span class="nav-number">1.</span> <span class="nav-text">初识：数据库事务隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">1.1.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACID"><span class="nav-number">1.2.</span> <span class="nav-text">ACID</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#脏读：一个事务读取了另一个事务还未提交的数据。"><span class="nav-number">1.2.1.</span> <span class="nav-text">脏读：一个事务读取了另一个事务还未提交的数据。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不可重复读：指在一个事务内读取表中的某一行数据，多次读取结果不同。"><span class="nav-number">1.2.2.</span> <span class="nav-text">不可重复读：指在一个事务内读取表中的某一行数据，多次读取结果不同。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#幻读：指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。"><span class="nav-number">1.2.3.</span> <span class="nav-text">幻读：指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务隔离级别"><span class="nav-number">1.3.</span> <span class="nav-text">事务隔离级别</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -884,9 +872,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://darylliu.github.io/2016/09/08/Redis学习1之快速入门/';
-          this.page.identifier = '2016/09/08/Redis学习1之快速入门/';
-          this.page.title = 'Redis学习1之快速入门';
+          this.page.url = 'http://darylliu.github.io/2018/03/22/初识：数据库事务隔离级别/';
+          this.page.identifier = '2018/03/22/初识：数据库事务隔离级别/';
+          this.page.title = '初识：数据库事务隔离级别';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lnplayer.disqus.com.disqus.com/embed.js';
