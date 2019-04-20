@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="Java,校招,类加载,虚拟机" />
 
 
 
@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="面试官：请你谈谈Java的类加载过程刚刚走出校门的应届毕业生，如果在去寻求一份Java开发的工作时，你的面试官很有可能一边看着你的简历，一边漫不经心地问你：了解过Java类的加载过程吗？ 这个时候你一定要注意了，虽然这是一个老生常谈的问题，但是这也是一个非常能够考验你Java功底的问题。 如果你答好了，这是你应该的；如果你没答好，那么对不起，面试官心中已经给了你不及格。 今天，小编就Java类加载">
+<meta name="description" content="刚刚走出校门的应届毕业生，如果在去寻求一份Java开发的工作时，你的面试官很有可能一边看着你的简历，一边漫不经心地问你：了解过Java类的加载过程吗？这个时候你一定要注意了，虽然这是一个老生常谈的问题，但是这也是一个非常能够考验你Java功底的问题。如果你答好了，这是你应该的；如果你没答好，那么对不起，面试官心中已经给了你不及格。今天，小编就Java类加载过程这个问题，抛砖引玉，说一下自己的理解，">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试官：请你谈谈Java的类加载过程">
 <meta property="og:url" content="http://darylliu.github.io/archives/1e480d2f.html">
 <meta property="og:site_name" content="Daryl's Blog">
-<meta property="og:description" content="面试官：请你谈谈Java的类加载过程刚刚走出校门的应届毕业生，如果在去寻求一份Java开发的工作时，你的面试官很有可能一边看着你的简历，一边漫不经心地问你：了解过Java类的加载过程吗？ 这个时候你一定要注意了，虽然这是一个老生常谈的问题，但是这也是一个非常能够考验你Java功底的问题。 如果你答好了，这是你应该的；如果你没答好，那么对不起，面试官心中已经给了你不及格。 今天，小编就Java类加载">
+<meta property="og:description" content="刚刚走出校门的应届毕业生，如果在去寻求一份Java开发的工作时，你的面试官很有可能一边看着你的简历，一边漫不经心地问你：了解过Java类的加载过程吗？这个时候你一定要注意了，虽然这是一个老生常谈的问题，但是这也是一个非常能够考验你Java功底的问题。如果你答好了，这是你应该的；如果你没答好，那么对不起，面试官心中已经给了你不及格。今天，小编就Java类加载过程这个问题，抛砖引玉，说一下自己的理解，">
 <meta property="og:image" content="http://darylliu.github.io/img/面试官：请你谈谈Java的类加载过程/img1.jpg">
-<meta property="og:updated_time" content="2019-04-13T08:36:13.000Z">
+<meta property="og:updated_time" content="2019-04-20T16:30:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试官：请你谈谈Java的类加载过程">
-<meta name="twitter:description" content="面试官：请你谈谈Java的类加载过程刚刚走出校门的应届毕业生，如果在去寻求一份Java开发的工作时，你的面试官很有可能一边看着你的简历，一边漫不经心地问你：了解过Java类的加载过程吗？ 这个时候你一定要注意了，虽然这是一个老生常谈的问题，但是这也是一个非常能够考验你Java功底的问题。 如果你答好了，这是你应该的；如果你没答好，那么对不起，面试官心中已经给了你不及格。 今天，小编就Java类加载">
+<meta name="twitter:description" content="刚刚走出校门的应届毕业生，如果在去寻求一份Java开发的工作时，你的面试官很有可能一边看着你的简历，一边漫不经心地问你：了解过Java类的加载过程吗？这个时候你一定要注意了，虽然这是一个老生常谈的问题，但是这也是一个非常能够考验你Java功底的问题。如果你答好了，这是你应该的；如果你没答好，那么对不起，面试官心中已经给了你不及格。今天，小编就Java类加载过程这个问题，抛砖引玉，说一下自己的理解，">
 <meta name="twitter:image" content="http://darylliu.github.io/img/面试官：请你谈谈Java的类加载过程/img1.jpg">
 
 
@@ -431,6 +431,10 @@
           
 
           
+              <div class="post-description">
+                  刚刚走出校门的应届毕业生，如果在去寻求一份Java开发的工作时，你的面试官很有可能一边看着你的简历，一边漫不经心地问你：了解过Java类的加载过程吗？这个时候你一定要注意了，虽然这是一个老生常谈的问题，但是这也是一个非常能够考验你Java功底的问题。如果你答好了，这是你应该的；如果你没答好，那么对不起，面试官心中已经给了你不及格。今天，小编就Java类加载过程这个问题，抛砖引玉，说一下自己的理解，如果有不对的地方，欢迎大家在评论区指正。
+              </div>
+          
 
         </div>
       </header>
@@ -456,7 +460,6 @@
 <p>这个时候你一定要注意了，虽然这是一个老生常谈的问题，但是这也是一个非常能够考验你Java功底的问题。</p>
 <p>如果你答好了，这是你应该的；如果你没答好，那么对不起，面试官心中已经给了你不及格。</p>
 <p>今天，小编就<strong>Java类加载</strong>过程这个问题，抛砖引玉，说一下自己的理解，如果有不对的地方，欢迎大家在评论区指正。</p>
-<a id="more"></a>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个Java文件从编码完成到最终执行，一般主要包括两个过程</p>
 <ul>
 <li>编译</li>
