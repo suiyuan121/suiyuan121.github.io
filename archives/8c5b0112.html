@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Daryl's Blog">
 <meta property="og:description" content="最近突发奇想，想要自己搞个小程序玩儿玩儿，但是鉴于自己是搞后端服务器出身，对于偏前端的微信小程序开发实在是一知半解，尤其是对于css类样式相关，更是无从下手，于是乎，只能从晚上找了一个demo，对其进行了一番改造，然后进行上线，也算是基本完整的走了一遍小程序开发的简单流程，本篇文章就是对这次实践的简单介绍。">
 <meta property="og:image" content="http://darylliu.github.io/img/微信小程序实战之菜谱小程序/img1.jpg">
-<meta property="og:updated_time" content="2019-04-26T16:57:46.000Z">
+<meta property="og:updated_time" content="2019-04-26T17:00:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序实战之菜谱小程序">
 <meta name="twitter:description" content="最近突发奇想，想要自己搞个小程序玩儿玩儿，但是鉴于自己是搞后端服务器出身，对于偏前端的微信小程序开发实在是一知半解，尤其是对于css类样式相关，更是无从下手，于是乎，只能从晚上找了一个demo，对其进行了一番改造，然后进行上线，也算是基本完整的走了一遍小程序开发的简单流程，本篇文章就是对这次实践的简单介绍。">
@@ -475,7 +475,8 @@
 <li>收藏(根据用户操作，自动增加和删除)</li>
 <li>搜索历史(根据用户操作，自动增加和删除)</li>
 </ol>
-<p>以上几项中的菜谱数据，需要开发者预先填充一些数据(终于到了服务端大显身手的时候)，本人写了个脚本，从网上简单爬取了一些。<br>爬虫地址如下：<br><a href="https://github.com/darylliu/pythoncrawler.git" target="_blank" rel="external">爬虫地址</a></p>
+<p>以上几项中的菜谱数据，需要开发者预先填充一些数据(终于到了服务端大显身手的时候)，本人写了个脚本，从网上简单爬取了一些。</p>
+<p>爬虫地址如下：<br><a href="https://github.com/darylliu/pythoncrawler.git" target="_blank" rel="external"><strong>爬虫地址</strong></a></p>
 <p>有兴趣的朋友改改直接使用～</p>
 <h3 id="业务逻辑"><a href="#业务逻辑" class="headerlink" title="业务逻辑"></a>业务逻辑</h3><ol>
 <li>首页：主要包括了各个类别菜谱的展示，可以根据不同的类别跳转到每一类别的菜谱列表页</li>
@@ -485,8 +486,8 @@
 <li>菜谱详情页：包括一道菜的，简单介绍，图片，步骤，配料，辅料等元素</li>
 </ol>
 <p>代码大致结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">├── README.md</div><div class="line">├── project.config.json                               // 项目配置文件</div><div class="line">└── cloudfunctions | 云环境                            // 存放云函数目录</div><div class="line">│    └── login                                        // 云函数</div><div class="line">│        ├── index.js</div><div class="line">│        └── package.json</div><div class="line">└── miniprogram</div><div class="line">    ├── images                                        // 存放小程序图片</div><div class="line">    ├── pages                                         // 存放小程序各种页面</div><div class="line">    |    ├── index                                    // 首页</div><div class="line">    |    └── menu                                     // 菜单页</div><div class="line">    |    └── user                                     // 用户中心</div><div class="line">    |    └── search                                   // 搜索页</div><div class="line">    |    └── list                                     // 列表页 搜索结果页</div><div class="line">    |    └── detail                                   // 详情页</div><div class="line">    |    └── databaseGuide                            // 数据库指导页</div><div class="line">    |    └── chooseLib                                // 提示页</div><div class="line">    |    └── storageConsole                           // 文件上传提示</div><div class="line">    ├── style                                         // 样式文件目录</div><div class="line">    ├── app.js                                        // 小程序公用逻辑</div><div class="line">    ├── app.json                                      // 全局配置</div><div class="line">    ├── app.wxss                                      // 全局样式</div></pre></td></tr></table></figure></p>
-<p>代码地址如下：<br><a href="https://github.com/darylliu/micro_app_food" target="_blank" rel="external">代码地址</a></p>
-<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>本次使用demo主要是在 github上找到的开源项目，借鸡下蛋，十分感谢！<br><a href="https://github.com/caochangkui/miniprogram-food" target="_blank" rel="external">demo地址</a></p>
+<p>代码地址如下：<br><a href="https://github.com/darylliu/micro_app_food" target="_blank" rel="external"><strong>代码地址</strong></a></p>
+<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>本次使用demo主要是在 github上找到的开源项目，借鸡下蛋，十分感谢！<br><a href="https://github.com/caochangkui/miniprogram-food" target="_blank" rel="external"><strong>demo地址</strong></a></p>
 
       
     </div>
