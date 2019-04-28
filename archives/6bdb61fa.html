@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="SpringBoot," />
+  <meta name="keywords" content="Redis,过期策略,淘汰机制" />
 
 
 
@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="SpringBoot学习3之数据库集成mybatis作为一个Web框架，必然要与数据库打交道，这里介绍了如何将SpringBoot与mybatis进行集成的方法">
-<meta name="keywords" content="SpringBoot">
+<meta name="description" content="对于一个缓存型redis，如果本身只有10G的容量，那么流量增大，写入了15G的数据，那么对于原本的10G数据是按照怎样的策略进行删除呢？在实际使用过程中，redis里数据已经设置了过期时间，但是时间到了，内存占用率还是比较高，数据没有删除的原因是什么呢？今天一起来看下。">
+<meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot学习3之数据库集成mybatis">
-<meta property="og:url" content="http://darylliu.github.io/archives/6c6770f1.html">
+<meta property="og:title" content="Redis的过期策略及内存淘汰机制">
+<meta property="og:url" content="http://darylliu.github.io/archives/6bdb61fa.html">
 <meta property="og:site_name" content="Daryl's Blog">
-<meta property="og:description" content="SpringBoot学习3之数据库集成mybatis作为一个Web框架，必然要与数据库打交道，这里介绍了如何将SpringBoot与mybatis进行集成的方法">
-<meta property="og:updated_time" content="2019-04-13T08:36:13.000Z">
+<meta property="og:description" content="对于一个缓存型redis，如果本身只有10G的容量，那么流量增大，写入了15G的数据，那么对于原本的10G数据是按照怎样的策略进行删除呢？在实际使用过程中，redis里数据已经设置了过期时间，但是时间到了，内存占用率还是比较高，数据没有删除的原因是什么呢？今天一起来看下。">
+<meta property="og:updated_time" content="2019-04-28T14:08:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot学习3之数据库集成mybatis">
-<meta name="twitter:description" content="SpringBoot学习3之数据库集成mybatis作为一个Web框架，必然要与数据库打交道，这里介绍了如何将SpringBoot与mybatis进行集成的方法">
+<meta name="twitter:title" content="Redis的过期策略及内存淘汰机制">
+<meta name="twitter:description" content="对于一个缓存型redis，如果本身只有10G的容量，那么流量增大，写入了15G的数据，那么对于原本的10G数据是按照怎样的策略进行删除呢？在实际使用过程中，redis里数据已经设置了过期时间，但是时间到了，内存占用率还是比较高，数据没有删除的原因是什么呢？今天一起来看下。">
 
 
 
@@ -141,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://darylliu.github.io/archives/6c6770f1.html"/>
+  <link rel="canonical" href="http://darylliu.github.io/archives/6bdb61fa.html"/>
 
 
 
 
 
-  <title> SpringBoot学习3之数据库集成mybatis | Daryl's Blog </title>
+  <title> Redis的过期策略及内存淘汰机制 | Daryl's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +295,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://darylliu.github.io/archives/6c6770f1.html">
+    <link itemprop="mainEntityOfPage" href="http://darylliu.github.io/archives/6bdb61fa.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Daryl">
@@ -316,7 +316,7 @@
             
             
               
-                SpringBoot学习3之数据库集成mybatis
+                Redis的过期策略及内存淘汰机制
               
             
           </h2>
@@ -331,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-03T14:05:39+08:00">
-                2016-11-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-28T22:35:27+08:00">
+                2019-04-28
               </time>
             
 
@@ -372,9 +372,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/archives/6c6770f1.html#comments" itemprop="discussionUrl">
+                <a href="/archives/6bdb61fa.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="archives/6c6770f1.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="archives/6bdb61fa.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -382,7 +382,7 @@
 
           
           
-             <span id="/archives/6c6770f1.html" class="leancloud_visitors" data-flag-title="SpringBoot学习3之数据库集成mybatis">
+             <span id="/archives/6bdb61fa.html" class="leancloud_visitors" data-flag-title="Redis的过期策略及内存淘汰机制">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  351字
+                  859字
                 </span>
               
 
@@ -422,12 +422,16 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1分钟
+                  3分钟
                 </span>
               
             </div>
           
 
+          
+              <div class="post-description">
+                  对于一个缓存型redis，如果本身只有10G的容量，那么流量增大，写入了15G的数据，那么对于原本的10G数据是按照怎样的策略进行删除呢？在实际使用过程中，redis里数据已经设置了过期时间，但是时间到了，内存占用率还是比较高，数据没有删除的原因是什么呢？今天一起来看下。
+              </div>
           
 
         </div>
@@ -450,16 +454,23 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-        <h1 id="SpringBoot学习3之数据库集成mybatis"><a href="#SpringBoot学习3之数据库集成mybatis" class="headerlink" title="SpringBoot学习3之数据库集成mybatis"></a>SpringBoot学习3之数据库集成mybatis</h1><p>作为一个Web框架，必然要与数据库打交道，这里介绍了如何将SpringBoot与mybatis进行集成的方法</p>
-<a id="more"></a>
-<h2 id="添加相关依赖"><a href="#添加相关依赖" class="headerlink" title="添加相关依赖"></a>添加相关依赖</h2><p>pom.xml如下</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 使用数据源 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- mysql --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- mybatis --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>  </div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="在配置文件application-dev-yml中配置"><a href="#在配置文件application-dev-yml中配置" class="headerlink" title="在配置文件application-dev.yml中配置"></a>在配置文件application-dev.yml中配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">spring:</div><div class="line">  datasource:</div><div class="line">    url: jdbc:mysql://10.31.85.33:3306/School?useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull</div><div class="line">    username: root</div><div class="line">    password: 123456</div><div class="line">    driver-class-name: com.mysql.jdbc.Driver</div></pre></td></tr></table></figure>
-<h2 id="创建实体类"><a href="#创建实体类" class="headerlink" title="创建实体类"></a>创建实体类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Integer id;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="创建Mapper接口"><a href="#创建Mapper接口" class="headerlink" title="创建Mapper接口"></a>创建Mapper接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Mapper</span> </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</div><div class="line">    <span class="meta">@Select</span>(<span class="string">"SELECT * FROM user WHERE user.user_id = #&#123;userId&#125;"</span>)</div><div class="line">    <span class="meta">@Results</span>(&#123;</div><div class="line">        <span class="meta">@Result</span>(column = <span class="string">"user_id"</span>, property = <span class="string">"id"</span>),</div><div class="line">        <span class="meta">@Result</span>(column = <span class="string">"user_name"</span>, property = <span class="string">"name"</span>)</div><div class="line">    &#125;)</div><div class="line">    <span class="function">User <span class="title">getById</span><span class="params">(@Param(<span class="string">"userId"</span>)</span> <span class="keyword">long</span> houseId)</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="创建Service"><a href="#创建Service" class="headerlink" title="创建Service"></a>创建Service</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Service</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="keyword">private</span> UserMapper userMapper;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> User <span class="title">getById</span><span class="params">(<span class="keyword">long</span> id)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> userMapper.getById(id);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Controller中调用"><a href="#Controller中调用" class="headerlink" title="Controller中调用"></a>Controller中调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Autowired</span></div><div class="line"><span class="keyword">private</span> UserService userService;</div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/&#123;id&#125;"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getById</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id, Model model) </span>&#123;</div><div class="line">    model.addAttribute(<span class="string">"user"</span>, userService.getById(id));</div><div class="line">    <span class="keyword">return</span> <span class="string">"show"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>查询成功!</p>
+        <h1 id="Redis的过期策略及内存淘汰机制"><a href="#Redis的过期策略及内存淘汰机制" class="headerlink" title="Redis的过期策略及内存淘汰机制"></a>Redis的过期策略及内存淘汰机制</h1><p>对于一个缓存型redis，如果本身只有10G的容量，那么流量增大，写入了15G的数据，那么对于原本的10G数据是按照怎样的策略进行删除呢？在实际使用过程中，redis里数据已经设置了过期时间，但是时间到了，内存占用率还是比较高，数据没有删除的原因是什么呢？今天一起来看下。</p>
+<h2 id="问题-redis的过期删除策略以及内存淘汰机制"><a href="#问题-redis的过期删除策略以及内存淘汰机制" class="headerlink" title="问题:redis的过期删除策略以及内存淘汰机制"></a>问题:redis的过期删除策略以及内存淘汰机制</h2><h3 id="定时删除"><a href="#定时删除" class="headerlink" title="定时删除"></a>定时删除</h3><p>用一个定时器对某个key进行监视，过期则自动删除。这种方法的好处是内存会及时释放，但是由于使用到了定时器，比较消耗CPU资源，当流量比较大的时候，并不适合，所以redis并没有采用这种方案</p>
+<h3 id="定期删除"><a href="#定期删除" class="headerlink" title="定期删除"></a>定期删除</h3><p>redis默认每过100ms检查一次，当前是否有过期的key,有过期key则进行删除操作。需要说明的是，redis不是每个100ms将所有的key检查一次，而是随机抽取进行检查(如果每隔100ms,全部key进行检查，redis不用做别的事情了。。。)。因此，如果只采用定期删除策略，会导致很多key到时间没有删除。</p>
+<h3 id="惰性删除"><a href="#惰性删除" class="headerlink" title="惰性删除"></a>惰性删除</h3><p>类似懒加载，当请求获取某个key的时候，redis会检查一下，这个key如果设置了过期时间，那么会判断该key是否过期？如果过期了会执行删除操作。</p>
+<h3 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h3><p>按照上面的方法，对于某些key，如果定期删除一直没有选中（运气比较差）。即时去请求key的时候，也没有请求到（比较冷门的key）,惰性删除没生效。这样，redis的内存会同样会越来越高。那么就应该采用内存淘汰机制。</p>
+<p>在redis的conf文件中，可以对内存淘汰策略进行配置。</p>
+<ol>
+<li>noeviction：当内存不足以容纳新写入数据时，新写入操作会报错。应该没人用吧。</li>
+<li>allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的key。推荐使用，目前项目在用这种。</li>
+<li>allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个key。应该也没人用吧，你不删最少使用Key,去随机删。。。</li>
+<li>volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的key。这种情况一般是把redis既当缓存，又做持久化存储的时候才用。不推荐</li>
+<li>volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个key。依然不推荐</li>
+<li>volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的key优先移除。不推荐</li>
+</ol>
+<p>ps：如果没有设置 expire 的key, 不满足先决条件(prerequisites); 那么 volatile-lru, volatile-random 和 volatile-ttl 策略的行为, 和 noeviction(不删除) 基本上一致。</p>
+<p>所以总的来说，redis是通过<strong>定期删除+惰性删除+配置的内存淘汰机制</strong>来保证内存可用的。</p>
+<h2 id="特别鸣谢"><a href="#特别鸣谢" class="headerlink" title="特别鸣谢"></a>特别鸣谢</h2><p><a href="https://note.youdao.com/" target="_blank" rel="external">参考链接</a></p>
 
       
     </div>
@@ -505,7 +516,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
           
         </div>
       
@@ -518,18 +529,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/95f4c9d7.html" rel="next" title="SpringBoot学习4之Logback使用">
-                <i class="fa fa-chevron-left"></i> SpringBoot学习4之Logback使用
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/archives/dfe00fa8.html" rel="prev" title="SpringBoot学习2之配置文件">
-                SpringBoot学习2之配置文件 <i class="fa fa-chevron-right"></i>
+              <a href="/archives/8c5b0112.html" rel="prev" title="微信小程序实战之菜谱小程序">
+                微信小程序实战之菜谱小程序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -703,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringBoot学习3之数据库集成mybatis"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot学习3之数据库集成mybatis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加相关依赖"><span class="nav-number">1.1.</span> <span class="nav-text">添加相关依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在配置文件application-dev-yml中配置"><span class="nav-number">1.2.</span> <span class="nav-text">在配置文件application-dev.yml中配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建实体类"><span class="nav-number">1.3.</span> <span class="nav-text">创建实体类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Mapper接口"><span class="nav-number">1.4.</span> <span class="nav-text">创建Mapper接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Service"><span class="nav-number">1.5.</span> <span class="nav-text">创建Service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Controller中调用"><span class="nav-number">1.6.</span> <span class="nav-text">Controller中调用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis的过期策略及内存淘汰机制"><span class="nav-number">1.</span> <span class="nav-text">Redis的过期策略及内存淘汰机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题-redis的过期删除策略以及内存淘汰机制"><span class="nav-number">1.1.</span> <span class="nav-text">问题:redis的过期删除策略以及内存淘汰机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定时删除"><span class="nav-number">1.1.1.</span> <span class="nav-text">定时删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定期删除"><span class="nav-number">1.1.2.</span> <span class="nav-text">定期删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惰性删除"><span class="nav-number">1.1.3.</span> <span class="nav-text">惰性删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存淘汰机制"><span class="nav-number">1.1.4.</span> <span class="nav-text">内存淘汰机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特别鸣谢"><span class="nav-number">1.2.</span> <span class="nav-text">特别鸣谢</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -863,9 +870,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://darylliu.github.io/archives/6c6770f1.html';
-          this.page.identifier = 'archives/6c6770f1.html';
-          this.page.title = 'SpringBoot学习3之数据库集成mybatis';
+          this.page.url = 'http://darylliu.github.io/archives/6bdb61fa.html';
+          this.page.identifier = 'archives/6bdb61fa.html';
+          this.page.title = 'Redis的过期策略及内存淘汰机制';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://lnplayer.disqus.com.disqus.com/embed.js';
