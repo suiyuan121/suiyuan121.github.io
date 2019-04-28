@@ -101,7 +101,7 @@
 <meta property="og:url" content="http://darylliu.github.io/archives/6bdb61fa.html">
 <meta property="og:site_name" content="Daryl's Blog">
 <meta property="og:description" content="对于一个缓存型redis，如果本身只有10G的容量，那么流量增大，写入了15G的数据，那么对于原本的10G数据是按照怎样的策略进行删除呢？在实际使用过程中，redis里数据已经设置了过期时间，但是时间到了，内存占用率还是比较高，数据没有删除的原因是什么呢？今天一起来看下。">
-<meta property="og:updated_time" content="2019-04-28T14:08:30.000Z">
+<meta property="og:updated_time" content="2019-04-28T14:10:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis的过期策略及内存淘汰机制">
 <meta name="twitter:description" content="对于一个缓存型redis，如果本身只有10G的容量，那么流量增大，写入了15G的数据，那么对于原本的10G数据是按照怎样的策略进行删除呢？在实际使用过程中，redis里数据已经设置了过期时间，但是时间到了，内存占用率还是比较高，数据没有删除的原因是什么呢？今天一起来看下。">
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  859字
+                  847字
                 </span>
               
 
@@ -422,7 +422,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  2分钟
                 </span>
               
             </div>
@@ -454,7 +454,7 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-        <h1 id="Redis的过期策略及内存淘汰机制"><a href="#Redis的过期策略及内存淘汰机制" class="headerlink" title="Redis的过期策略及内存淘汰机制"></a>Redis的过期策略及内存淘汰机制</h1><p>对于一个缓存型redis，如果本身只有10G的容量，那么流量增大，写入了15G的数据，那么对于原本的10G数据是按照怎样的策略进行删除呢？在实际使用过程中，redis里数据已经设置了过期时间，但是时间到了，内存占用率还是比较高，数据没有删除的原因是什么呢？今天一起来看下。</p>
+        <p>对于一个缓存型redis，如果本身只有10G的容量，那么流量增大，写入了15G的数据，那么对于原本的10G数据是按照怎样的策略进行删除呢？在实际使用过程中，redis里数据已经设置了过期时间，但是时间到了，内存占用率还是比较高，数据没有删除的原因是什么呢？今天一起来看下。</p>
 <h2 id="问题-redis的过期删除策略以及内存淘汰机制"><a href="#问题-redis的过期删除策略以及内存淘汰机制" class="headerlink" title="问题:redis的过期删除策略以及内存淘汰机制"></a>问题:redis的过期删除策略以及内存淘汰机制</h2><h3 id="定时删除"><a href="#定时删除" class="headerlink" title="定时删除"></a>定时删除</h3><p>用一个定时器对某个key进行监视，过期则自动删除。这种方法的好处是内存会及时释放，但是由于使用到了定时器，比较消耗CPU资源，当流量比较大的时候，并不适合，所以redis并没有采用这种方案</p>
 <h3 id="定期删除"><a href="#定期删除" class="headerlink" title="定期删除"></a>定期删除</h3><p>redis默认每过100ms检查一次，当前是否有过期的key,有过期key则进行删除操作。需要说明的是，redis不是每个100ms将所有的key检查一次，而是随机抽取进行检查(如果每隔100ms,全部key进行检查，redis不用做别的事情了。。。)。因此，如果只采用定期删除策略，会导致很多key到时间没有删除。</p>
 <h3 id="惰性删除"><a href="#惰性删除" class="headerlink" title="惰性删除"></a>惰性删除</h3><p>类似懒加载，当请求获取某个key的时候，redis会检查一下，这个key如果设置了过期时间，那么会判断该key是否过期？如果过期了会执行删除操作。</p>
@@ -710,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis的过期策略及内存淘汰机制"><span class="nav-number">1.</span> <span class="nav-text">Redis的过期策略及内存淘汰机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题-redis的过期删除策略以及内存淘汰机制"><span class="nav-number">1.1.</span> <span class="nav-text">问题:redis的过期删除策略以及内存淘汰机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定时删除"><span class="nav-number">1.1.1.</span> <span class="nav-text">定时删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定期删除"><span class="nav-number">1.1.2.</span> <span class="nav-text">定期删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惰性删除"><span class="nav-number">1.1.3.</span> <span class="nav-text">惰性删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存淘汰机制"><span class="nav-number">1.1.4.</span> <span class="nav-text">内存淘汰机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特别鸣谢"><span class="nav-number">1.2.</span> <span class="nav-text">特别鸣谢</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题-redis的过期删除策略以及内存淘汰机制"><span class="nav-number">1.</span> <span class="nav-text">问题:redis的过期删除策略以及内存淘汰机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定时删除"><span class="nav-number">1.1.</span> <span class="nav-text">定时删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定期删除"><span class="nav-number">1.2.</span> <span class="nav-text">定期删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#惰性删除"><span class="nav-number">1.3.</span> <span class="nav-text">惰性删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存淘汰机制"><span class="nav-number">1.4.</span> <span class="nav-text">内存淘汰机制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特别鸣谢"><span class="nav-number">2.</span> <span class="nav-text">特别鸣谢</span></a></li></ol></div>
             
 
           </div>
