@@ -101,7 +101,7 @@
 <meta property="og:url" content="http://darylliu.github.io/archives/ada59da0.html">
 <meta property="og:site_name" content="Daryl's Blog">
 <meta property="og:description" content="对象的序列化与序列化，可能大家更多接触的是谷歌的protobuf。Thrift作为一个跨语言的RPC代码生成引擎，也具备此功能。本文要说的是如何使用Thrift实现对象的序列化与反序列化，其实就是，如何以protobuf的方式使用Thrift。">
-<meta property="og:updated_time" content="2019-05-27T14:52:42.000Z">
+<meta property="og:updated_time" content="2019-05-27T14:56:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Thrift对象的序列化与反序列化">
 <meta name="twitter:description" content="对象的序列化与序列化，可能大家更多接触的是谷歌的protobuf。Thrift作为一个跨语言的RPC代码生成引擎，也具备此功能。本文要说的是如何使用Thrift实现对象的序列化与反序列化，其实就是，如何以protobuf的方式使用Thrift。">
@@ -454,8 +454,8 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-        <p>对象的序列化与反序列化，可能大家更多接触的是谷歌的protobuf。<br>Thrift作为一个跨语言的RPC代码生成引擎，也具备此功能。<br>本文要说的是如何使用Thrift实现对象的序列化与反序列化，其实就是，如何以protobuf的方式使用Thrift。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>Thrift描述文件：</p>
+        <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>对象的序列化与反序列化，可能大家更多接触的是谷歌的protobuf。<br>Thrift作为一个跨语言的RPC代码生成引擎，也具备此功能。<br>本文要说的是如何使用Thrift实现对象的序列化与反序列化，其实就是，如何以protobuf的方式使用Thrift。</p>
+<p>Thrift描述文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># filename: demo.thrift</div><div class="line">struct Node &#123;</div><div class="line">    1: string host</div><div class="line">    2: i32 port</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>以生成的Python代码为例，Thrift生成的类型提供了两个关键方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Node:</div><div class="line">  &quot;&quot;&quot;</div><div class="line">  Attributes:</div><div class="line">   - host</div><div class="line">   - port</div><div class="line">  &quot;&quot;&quot;</div><div class="line">  thrift_spec = (</div><div class="line">    None, # 0</div><div class="line">    (1, TType.STRING, &apos;host&apos;, None, None, ), # 1</div><div class="line">    (2, TType.I32, &apos;port&apos;, None, None, ), # 2</div><div class="line">  )</div><div class="line">  </div><div class="line">  def __init__(self, host=None, port=None,):</div><div class="line">    self.host = host</div><div class="line">    self.port = port</div><div class="line"></div><div class="line">  def read(self, iprot):</div><div class="line">    ...</div><div class="line"></div><div class="line">  def write(self, oprot):</div><div class="line">    ...</div></pre></td></tr></table></figure>
